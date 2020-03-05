@@ -8,7 +8,7 @@ type Pet {
   price: Int!
 }
 
-type User {
+type Customer {
   id: ID! @unique
   firstName: String!
   lastName: String!
