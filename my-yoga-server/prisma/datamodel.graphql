@@ -1,13 +1,25 @@
-type User {
+type Pet {
   id: ID! @unique
   name: String!
-  posts: [Post!]!
+  species: String!
+  imageUrl: String!
+  description: String!
+  available: Boolean! @default(value: "true)
+  price: Int!
 }
 
-type Post {
+type User {
   id: ID! @unique
-  title: String!
-  content: String!
-  published: Boolean! @default(value: "false")
-  author: User!
+  firstName: String!
+  lastName: String!
+  email: Boolean!
+  password: String!
+  admin: Boolean! @default(value: "false")
+}
+
+type Order {
+  id: ID! @unique
+  total: Int!
+  quantity: Int!
+  status: String!
 }
