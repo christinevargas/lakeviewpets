@@ -4,7 +4,7 @@ type Pet {
   species: String!
   imageUrl: String!
   description: String!
-  available: Boolean! @default(value: "true)
+  available: Boolean! @default(value: "true")
   price: Int!
 }
 
