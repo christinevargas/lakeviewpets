@@ -1,0 +1,16 @@
+mutation {
+createPet(
+  data: {
+      id: 4
+      name: "Benny"
+      species: "Dog"
+      imgUrl: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12130118/Golden-Retriever-Standing1.jpg"
+      description: "Menace, but cute."
+      available: False
+      price: 65928269301
+    }
+    { id }
+  )
+}
+
+

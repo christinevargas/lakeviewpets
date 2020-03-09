@@ -1,9 +1,8 @@
-# import Post from './generated/prisma.graphql'
+# import Pet from './generated/prisma.graphql'
 # import Customer from './generated/prisma.graphql'
 
 type Query {
-  posts(searchString: String): [Post!]!
-  user(id: ID!): User
+  pet(id: ID!): Pet
 }
 
 type Mutation {

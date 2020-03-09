@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Fri Mar 06 2020 14:39:16 GMT-0600 (Central Standard Time)
+# timestamp: Fri Mar 06 2020 15:12:30 GMT-0600 (Central Standard Time)
 
 type AggregateCustomer {
   count: Int!
