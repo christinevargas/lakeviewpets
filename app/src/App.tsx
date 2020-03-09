@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
-import AllPets from "./components/AllPets"
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css';
+
+//Components
+import Homepage from "./components/Homepage"
+
 
 // export interface AppProps {
 //   readonly prop1: string;
@@ -9,9 +13,9 @@ import './App.css';
 
 const App: FC = () => { //default props/values should go in as params 
   return (
-    <>
-    <AllPets/>
-    </>
+    <Router>
+    <Homepage/>
+    </Router>
   );
 }
 
