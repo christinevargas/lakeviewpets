@@ -16,7 +16,7 @@ const SinglePet: FC = () => {
         <h2>Name: {pet.name}</h2>
         <h3>Species: {pet.species}</h3>
         <h3>Age: {pet.age}</h3>
-        <img className="single-pet-image" src={pet.imgUrl} alt="image" />
+        <img className="single-pet-image" src={pet.imgUrl} alt="pet" />
         <div>
           <p>{pet.description}</p>
         </div>

@@ -1,19 +1,11 @@
-mutation createPet{
-  
-      name: "Benny"
-      species: "Dog",
-      imgUrl: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12130118/Golden-Retriever-Standing1.jpg",
-      description: "Menace, but cute.",
-      available: False,
-      price: 65928269301{
-        id
-        }
+mutation {
+  createPet(data: {
+    name: "Benny"
+    species:"Dog"
+    imageUrl: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12130118/Golden-Retriever-Standing1.jpg"
+    description: "Menace, but cute."
+    price: 646916302
+  }) {
+    id
+  }
 }
-
-
-# mutation CreateReviewForEpisode($ep: Episode!, $review: ReviewInput!) {
-#   createReview(episode: $ep, review: $review) {
-#     stars
-#     commentary
-#   }
-# }

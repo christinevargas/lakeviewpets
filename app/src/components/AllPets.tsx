@@ -25,7 +25,7 @@ let pets = [
         <header className="all-pets-header">
           All Pets Available for Adoption
         </header>
-        <body className="all-pets-container">
+        <div className="all-pets-container">
           {pets.map(pet => (
           <div key={pet.id} className="all-pets-cards">
             <Card style={{ width: '18rem' }}>
@@ -43,7 +43,7 @@ let pets = [
             </Card>
           </div>
           ))}
-        </body>
+        </div>
       </div>
     );
   }
