@@ -12,7 +12,9 @@ import Navbar from './Navbar'
   const Homepage: FC = () => {
     return (
       <>
-      <Navbar/>
+      <h1 className="homepage-header">
+      Welcome to the Associate Pet Shop!
+      </h1>
       <AllPets/>
       </>
     );

@@ -1,31 +1,38 @@
 const { GraphQLServer } = require('graphql-yoga')
+const { importSchema } = require('graphql-import')
 const { Prisma } = require('prisma-binding')
+
+
+//mocking --> look into this 
+
+
 
 const resolvers = {
     Query: {
-      pet: (_, args, context, info) => {
-        return context.prisma.query.pet,
+      pet(_, args, context, info){
+        return context.prisma.query.pet(
+          {
+            where: {}
+          }
+        )
         info
       },
-      customer: (_, args, context, info) => {
-        return context.prisma.query.customer,
-        info
-      },
+      // customer: (_, args, context, info) => {
+      //   return context.prisma.query.customer,
+      //   info
+      // },
     },
     Mutation: {
-      createPet: (_, args, context, info) => {
+      createPet(_, {id, name}, context){
         return context.prisma.mutation.createPet(
           {
-            data: {
-              name: args.name,
-              species: args.species,
-              imgUrl: args.imgUrl,
-              description: args.description,
-              available: args.available,
-              price: args.price
-            },
+              id, name
+              // species: args.species,
+              // imgUrl: args.imgUrl,
+              // description: args.description,
+              // available: args.available,
+              // price: args.price
           },
-          info,
         )
       },
     //   publish: (_, args, context, info) => {

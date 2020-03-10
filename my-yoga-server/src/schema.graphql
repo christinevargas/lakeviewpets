@@ -2,12 +2,28 @@
 # import Customer from './generated/prisma.graphql'
 
 type Query {
-  pet(id: ID!): Pet
+  pet: Pet
 }
 
 type Mutation {
-  createDraft(authorId: ID!, title: String!, content: String!): Post
-  publish(id: ID!): Post
-  deletePost(id: ID!): Post
-  signup(name: String!): User!
+  createPet(pet: {id: ID!, name: String!, species: String!, imgUrl: String!, description: String!, available: Boolean!, price: Int!}): Pet
+  
 }
+
+
+
+# type Mutation {
+#     # Add a new comment
+#     createPet(pet: createPetInput!): Pet
+# }
+
+# # Input type for a new Comment
+# input createPetInput {
+#    id: ID!
+#    name: String!
+#    species: String!
+#    imgUrl: String!
+#    description: String!
+#    available: Boolean!
+#    price: Int!
+# }

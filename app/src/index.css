@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+/* Homepage */
+ .homepage-header {
+   font-family: 'Bellota';
+   text-align: center;
+   padding-top: 30px;
+   padding-bottom: 30px;
+ }
+
+
+ /* All Pets */
+
+ .all-pets-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto
+ }
+
+ .all-pets-header {
+   font-family: 'Bellota';
+   font-size: 35px;
+   text-align: center;
+   padding-top: 50px;
+   padding-bottom: 50px
+ }
+
+.all-pets-cards {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-content: space-between;
+  padding-left: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  /* background-color: */
+}
+
+.pet-name {
+  font-family: 'Bellota';
+  text-align: center;
+}
