@@ -3,9 +3,6 @@ const { importSchema } = require('graphql-import')
 const { Prisma } = require('prisma-binding')
 
 
-//mocking --> look into this 
-
-
 
 const resolvers = {
     Query: {

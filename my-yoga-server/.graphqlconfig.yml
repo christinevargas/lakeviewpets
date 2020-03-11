@@ -9,6 +9,6 @@ projects:
       schemaPath: generated/prisma.graphql
       extensions:
         prisma: ../prisma/prisma.yml
-        # codegen:
-        #   -generator: prisma-binding
-        #   language: typescript
+        codegen:
+          -generator: prisma-binding
+          language: typescript

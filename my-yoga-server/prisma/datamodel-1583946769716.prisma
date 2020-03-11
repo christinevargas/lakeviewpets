@@ -1,0 +1,30 @@
+type Pet @db(name: "pets") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "pets_id_seq", initialValue: 1, allocationSize: 1)
+  age: Int!
+  description: String @default(value: "More info coming soon!")
+  imageUrl: String @default(value: "https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png")
+  name: String!
+  price: Int!
+  species: String!
+}
+
+type User @db(name: "users") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "users_id_seq", initialValue: 1, allocationSize: 1)
+  admin: Boolean @default(value: true)
+  email: String! @unique
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+type KnexMigration @db(name: "knex_migrations") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "knex_migrations_id_seq", initialValue: 1, allocationSize: 1)
+  batch: Int
+  migrationTime: DateTime @db(name: "migration_time")
+  name: String
+}
+
+type KnexMigrationsLock @db(name: "knex_migrations_lock") {
+  index: Int! @id(strategy: SEQUENCE) @sequence(name: "knex_migrations_lock_index_seq", initialValue: 1, allocationSize: 1)
+  isLocked: Int @db(name: "is_locked")
+}

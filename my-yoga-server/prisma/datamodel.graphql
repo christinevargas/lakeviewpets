@@ -1,25 +1,25 @@
 type Pet {
   id: ID! @unique
-  name: String!
-  species: String!
-  imageUrl: String!
-  description: String!
-  available: Boolean! @default(value: "true")
-  price: Int!
+  name: String
+  species: String
+  imageUrl: String
+  age: Int
+  description: String
+  price: Int
 }
 
-type Customer {
+type User {
   id: ID! @unique
-  firstName: String!
-  lastName: String!
-  email: Boolean!
-  password: String!
+  firstName: String
+  lastName: String
+  email: Boolean
+  password: String
   admin: Boolean! @default(value: "false")
 }
 
 type Order {
   id: ID! @unique
-  total: Int!
-  quantity: Int!
-  status: String!
+  total: Int
+  quantity: Int
+  status: String
 }

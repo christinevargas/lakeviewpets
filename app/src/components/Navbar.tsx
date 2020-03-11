@@ -1,15 +1,14 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
-
-//Feather Icons
 import * as Icon from 'react-feather'
+import { Image } from 'react-bootstrap'
 
 
 const Navbar: FC = () => {
     return (
-      <div className="navbar">
+      <div className="navbar-container">
        <Link to="/" style={{ textDecoration: 'none'}}>
-        <Icon.Home color="black" size={30}/>
+        <Image src="/Logo.png" className='logo'></Image>
       </Link>
       <Link to="/pets" style={{ textDecoration: 'none', color:"black", fontSize: 22, fontFamily: "Bellota"}}>
         All Pets

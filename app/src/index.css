@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,7 +10,36 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+
+
+/* Navbar */
+
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
+
+.logo {
+  height: 40px;
+  width: 40px
+}
+
+
+
+
+/* .jumbotron {
+  width: 1000px;
+  background: none;
+}
+
+.jumbotron-container {
+  background: none;
+} */
+
+
 
 
 
@@ -23,16 +52,28 @@ code {
    padding-bottom: 30px;
  }
 
+ .category-figures {
+   display: flex;
+   justify-content: space-around;
+ }
+
+ .category-img {
+   width: 170px;
+   height: 170px;
+   border-style: solid;
+ }
+
+ .category-captions {
+   text-align: center;
+ }
 
  /* All Pets */
-
  .all-pets-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: auto
- }
 
+ }
  .all-pets-header {
    font-family: 'Bellota';
    font-size: 35px;
@@ -42,17 +83,24 @@ code {
  }
 
 .all-pets-cards {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  align-content: space-between;
-  padding-left: 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  /* background-color: */
+  /* flex-grow: 1; */
+  align-content: flex-start;
+  padding: 30px
 }
 
 .pet-name {
   font-family: 'Bellota';
   text-align: center;
+}
+
+/* Single Pet */
+.single-pet-container {
+  display: flex;
+  padding-top: 100px;
+  justify-content: center;
+}
+
+.single-pet-image {
+  height: 200px;
+  width: 250px
 }

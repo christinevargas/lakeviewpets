@@ -6,6 +6,8 @@
   "dependencies": {
     "graphql": "^14.6.0",
     "graphql-yoga": "^1.18.3",
+    "knex": "^0.20.11",
+    "pg": "^7.18.2",
     "prisma-binding": "^2.3.16"
   }
 }
