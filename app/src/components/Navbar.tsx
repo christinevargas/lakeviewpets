@@ -7,15 +7,19 @@ import { Image } from 'react-bootstrap'
 const Navbar: FC = () => {
     return (
       <div className="navbar-container">
+        <div className="navbar-container-left">
        <Link to="/" style={{ textDecoration: 'none'}}>
-        <Image src="/Logo.png" className='logo'></Image>
+        <Image src="/LogoWithName.png" className='logo'></Image>
       </Link>
+      </div>
+      <div className="navbar-container-right">
       <Link to="/pets" style={{ textDecoration: 'none', color:"black", fontSize: 22, fontFamily: "Bellota"}}>
         All Pets
       </Link>
       <Link to="/create-pet-form" style={{ textDecoration: 'none' }}>
         <Icon.PlusSquare color="black" size={30}/>
       </Link>
+      </div>
       </div>
     );
   }
