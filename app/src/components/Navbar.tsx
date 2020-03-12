@@ -13,11 +13,11 @@ const Navbar: FC = () => {
       </Link>
       </div>
       <div className="navbar-container-right">
-      <Link to="/pets" style={{ textDecoration: 'none', color:"black", fontSize: 22, fontFamily: "Bellota"}}>
-        All Pets
+      <Link to="/pets" style={{ textDecoration: 'none'}}>
+        <Image src='/AllPetsLogo.png' className='all-pets-icon'></Image>
       </Link>
       <Link to="/create-pet-form" style={{ textDecoration: 'none' }}>
-        <Icon.PlusSquare color="black" size={30}/>
+        <Icon.PlusSquare color="black" size={30} className="add-pet-icon"/>
       </Link>
       </div>
       </div>

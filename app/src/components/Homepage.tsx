@@ -2,15 +2,16 @@ import React, { FC } from "react"
 import { Figure, Jumbotron, Button, Container, Carousel } from 'react-bootstrap'
 
 
+
 // export interface AppProps {
 //     readonly prop1: string;
 //   }
 
 const categories = [
-  {id: 1, species: "Dogs", imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZ7EO7OG3tTwKJEUB5VdLiXTNexLdnckqNP218SGzk99-zBjp-"},
-  {id: 2, species: "Cats", imgUrl: "https://toppng.com/uploads/preview/free-download-cat-png-vector-icon-cat-transparent-background-cat-icon-transparent-background-11563035549ypnlilorb5.png"},
-  {id: 3, species: "Birds", imgUrl: "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/bird.png"},
-  {id: 4, species: "Bunnies", imgUrl: "https://static.thenounproject.com/png/208196-200.png"},
+  {id: 1, species: "Dogs", imgUrl: '/DogLogo.png' },
+  {id: 2, species: "Cats", imgUrl: '/CatLogo.png'},
+  {id: 3, species: "Birds", imgUrl: '/BirdLogo.png'},
+  {id: 4, species: "Bunnies", imgUrl: '/BunnyLogo.png' },
 ]
   
   
@@ -35,7 +36,6 @@ const categories = [
         <Figure.Image
           alt="Cannot Load"
           src={category.imgUrl}
-          roundedCircle
           className="category-img"
           />
         <Figure.Caption className="category-captions">
