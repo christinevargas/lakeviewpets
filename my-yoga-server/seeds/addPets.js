@@ -1,12 +1,37 @@
-// const faker = require('faker');
+const faker = require('faker');
 
-// const createFakePet = () => ({
+// const createFakeDogs = () => ({
 //   name: faker.name.firstName(),
-//   species: 
+//   species: "Dog",
 //   imageUrl:
 //   age:
-//   description
+//   description:
 // })
+
+// const createFakeCats = () => ({
+//   name: faker.name.firstName(),
+//   species: "Cat",
+//   imageUrl:
+//   age:
+//   description:
+// })
+
+// const createFakeBirds = () => ({
+//   name: faker.name.firstName(),
+//   species: "Bird",
+//   imageUrl:
+//   age:
+//   description:
+// })
+
+// const createFakeBunnies = () => ({
+//   name: faker.name.firstName(),
+//   species: "Bunny",
+//   imageUrl:
+//   age:
+//   description:
+// })
+
 
 
 exports.seed = function(knex) {

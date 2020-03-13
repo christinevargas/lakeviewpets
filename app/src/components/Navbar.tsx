@@ -4,6 +4,10 @@ import * as Icon from 'react-feather'
 import { Image } from 'react-bootstrap'
 
 
+// function renderTooltip(){
+//   return <Tooltip id={1}>View All Pets</Tooltip>
+// }
+
 const Navbar: FC = () => {
     return (
       <div className="navbar-container">
@@ -13,11 +17,17 @@ const Navbar: FC = () => {
       </Link>
       </div>
       <div className="navbar-container-right">
+
       <Link to="/pets" style={{ textDecoration: 'none'}}>
         <Image src='/AllPetsLogo.png' className='all-pets-icon'></Image>
       </Link>
-      <Link to="/create-pet-form" style={{ textDecoration: 'none' }}>
-        <Icon.PlusSquare color="black" size={30} className="add-pet-icon"/>
+  
+      <Link to="/adoption-form" style={{ textDecoration: 'none' }}>
+        <Image src="/AdoptPetFormIcon.png" className="adoption-form-icon"/>
+      </Link>
+
+      <Link to="/cart" style={{ textDecoration: 'none' }}>
+        <Image src="/CartIcon.png" className="cart-icon"/>
       </Link>
       </div>
       </div>
@@ -25,3 +35,5 @@ const Navbar: FC = () => {
   }
   
   export default Navbar;
+
+
