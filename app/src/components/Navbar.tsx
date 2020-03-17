@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
-import * as Icon from 'react-feather'
 import { Image } from 'react-bootstrap'
 
 
