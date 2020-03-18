@@ -12,7 +12,13 @@ code {
     monospace;
 } */
 
-
+/* #root { 
+  background: url("/gradient2.jpeg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
 
 /* Navbar */
 
@@ -60,15 +66,18 @@ code {
    padding-top: 30px;
    padding-bottom: 30px;
  }
+ .homepage-buttons {
+   font-family: "Amaranth";
+ }
 
  .category-figures {
    display: flex;
-   justify-content: space-around;
+   justify-content: space-evenly;
  }
 
  .category-img {
-   width: 180px;
-   height: 180px;
+   width: 250px;
+   height: 250px;
  }
 
  .category-captions {
@@ -77,14 +86,45 @@ code {
  }
 
  .jumbotron-container {
-  background-image: url('/gradient.jpeg')
+  background-image: url("/gradient.jpeg");
 }
 
 .jumbotron-font {
   font-family: 'Amaranth';
+  padding-top: 50px;
+}
+
+.homepage-icons-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 50px
+}
+
+.homepage-icons {
+  height: 250px;
+  width: 250px;
+}
+
+.guarantee-header {
+  text-align: center;
+  font-family: "Amaranth";
+  padding-top: 100px
+}
+
+.icon-captions {
+  font-family: "Amaranth";
+  font-size: 30px;
+  text-align: center;
+  width: 250px;
 }
 
  /* All Pets */
+
+ .all-pets-page {
+   background-image: url("/gradient.jpeg");
+ }
  .all-pets-container {
   display: flex;
   flex-direction: row;
@@ -119,11 +159,15 @@ code {
 
 .carousel-item {
   justify-content: center;
-  margin: 0 auto
+  margin: 0 auto;
+  height: 700px;
+  width: 1000px;
 }
 
 .carousel-font {
   font-family: "Amaranth";
+  font-size: 30px;
+  color: black
 }
 
 
@@ -131,13 +175,50 @@ code {
 .single-pet-container {
   display: flex;
   padding-top: 100px;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .single-pet-image {
-  height: 200px;
-  width: 250px
+  height: 300px;
+  width: 450px;
 }
+
+.single-pet-intro-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.single-pet-name {
+  font-family: "Bellota";
+  font-size: 40px;
+}
+
+.single-pet-data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-style: dotted;
+  padding: 50px
+}
+
+.single-pet-header {
+  font-family: "Bellota";
+  font-size: 30px;
+  padding-bottom: 50px
+}
+
+.single-pet-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.single-pet-button {
+  height: 50px;
+}
+
+
 
 
 /* Adoption Form */
@@ -159,7 +240,6 @@ code {
   border-style: solid;
   padding: 50px;
   margin-top: 100px;
-
   background-image: url("/gradient.jpeg");
 }
 .adoption-form-image {

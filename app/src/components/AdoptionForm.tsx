@@ -104,12 +104,16 @@ const AdoptionForm: FC = () => {
           <ListGroup variant="flush">
             <ListGroup.Item>1. Be at least 18 years of age</ListGroup.Item>
             <ListGroup.Item>2. Have a government-issued photo ID, such as a driver's license or state ID</ListGroup.Item>
-            <ListGroup.Item>3. Verify that you are allowed to have a pet of the species and size where you currently reside</ListGroup.Item>
-            <ListGroup.Item>4. Be able to take the pet home on the day of adoption</ListGroup.Item>
+             <ListGroup.Item>3. Submit one Adoption Form for each pet being adopted</ListGroup.Item>
+             <ListGroup.Item>4. Verify that you are allowed to have a pet of the species and size where you currently reside</ListGroup.Item>
+            <ListGroup.Item>5. Be able to take the pet home on the day of adoption</ListGroup.Item>
+     
+           
           </ListGroup>
     
           </div>
           <Image src="/AdoptionFormImage.png" className="adoption-form-image"></Image>
+          <p className="rules">Questions? Email us at info@lakeviewpets.com or call us at (312) 312-3123.</p>
       </div>
           
       </div>

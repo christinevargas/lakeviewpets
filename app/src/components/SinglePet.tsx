@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
-import { Card } from 'react-bootstrap'
+// import { Link } from 'react-router-dom'
+import { Image, Button } from 'react-bootstrap'
 
 
 let pet = {
@@ -8,24 +9,28 @@ let pet = {
   species: "Dog",
   age: 1,
   description: "Menace, but cute!",
-  imgUrl: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12130118/Golden-Retriever-Standing1.jpg",
-  price: 7643519
+  imgUrl: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12130118/Golden-Retriever-Standing1.jpg"
 }
 
 const SinglePet: FC = () => {
     return (
       <div className="single-pet-container">
         
-       <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={pet.imgUrl} className="single-pet-image"/>
-          <Card.Body>
-          <Card.Title className='pet-name'>{pet.name}</Card.Title>
-          <Card.Text>Species: {pet.species}</Card.Text>
-          <Card.Text>Age: {pet.age}</Card.Text>
-          <Card.Text>Description: {pet.description}</Card.Text>
-          <Card.Text>Price: ${pet.price}</Card.Text>
-          </Card.Body>
-      </Card>
+        <div className="single-pet-intro-container">
+          <h1 className="single-pet-name">{pet.name}</h1>
+          <Image src={pet.imgUrl} className="single-pet-image"></Image>
+        </div>
+        <div className="single-pet-data-container">
+          <h3 className="single-pet-header">Get to know me...</h3>
+          <p>Species: {pet.species}</p>
+          <p>Age: {pet.age}</p>
+          <p>Description: {pet.description}</p>
+          <p>Adoption Fee: $200.00</p>
+        </div>
+        <div className="single-pet-buttons-container">
+          <Button variant="outline-info" className="single-pet-button">Add Pet to Crate</Button>
+          <Button variant="outline-info" className="single-pet-button">Go To Adoption Form</Button>
+        </div>
       </div>
     );
   }

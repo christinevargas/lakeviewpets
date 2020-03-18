@@ -1,7 +1,5 @@
 import React, { FC } from "react"
 import { Link } from 'react-router-dom'
-
-//React-Bootstrap Components
 import { Card, Button } from 'react-bootstrap'
   
 
@@ -21,7 +19,7 @@ let pets = [
   
   const AllPets: FC = () => {
   return (
-      <div>
+      <div className="all-pets-page">
         <header className="all-pets-header">
           All Pets Available for Adoption
         </header>

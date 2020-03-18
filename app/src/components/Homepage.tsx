@@ -25,7 +25,7 @@ const categories = [
           We're Lakeview Pets and we're new in town. Let us introduce you to your new best friend. Find us (and your future BFF) at the intersection of Broadway & Wellington in Lakeview East.
         </p>
         <p>
-          <Button variant="outline-info">Learn more</Button>
+          <Button variant="outline-info" className="homepage-buttons">Learn more</Button>
         </p>
         </Container>
       </Jumbotron>
@@ -39,13 +39,15 @@ const categories = [
           className="category-img"
           />
         <Figure.Caption className="category-captions">
-          <Button variant="outline-info">{category.species}</Button></Figure.Caption>
+          <Button variant="outline-info" className="homepage-buttons">{category.species}</Button></Figure.Caption>
       </Figure>
       ))}
       </div>
       <Carousel className='carousel-container' interval={6000}>
         <Carousel.Item className="carousel-item">
           <img
+          height={700}
+          width={1000}
           src="https://kittenrescue.org/wp-content/uploads/2017/03/KittenRescue_KittenCareHandbook.jpg"
           alt="First slide"
          />
@@ -56,7 +58,9 @@ const categories = [
         </Carousel.Item>
         <Carousel.Item className="carousel-item">
           <img
-            src="https://www.trianglerabbits.org/adopt/rescues_files/stacks-image-feae2b0.jpg"
+            height={700}
+            width={1000}
+            src="https://www.rabbitrescue.com/butternut.jpg"
             alt="Second slide"
         />
         <Carousel.Caption>
@@ -66,6 +70,8 @@ const categories = [
         </Carousel.Item>
         <Carousel.Item className="carousel-item">
           <img
+            height={700}
+            width={1000}
             src="https://www.thesprucepets.com/thmb/K6l0YKtcUnFXd8YhCP40lpegyCw=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/ScreenShot2019-10-21at9.04.12AM-94e28f1cb3dd41f98784d805d2b59842.png"
             alt="Third slide"
         />
@@ -76,8 +82,61 @@ const categories = [
         </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <h2 className="guarantee-header">When you adopt a pet from Lakeview Pets, we guarantee...</h2>
+
+        <div className="homepage-icons-container">
+
+
+        <Figure>
+          <Figure.Image
+            src="/DogHeartIcon.png" className="homepage-icons"
+          />
+          <Figure.Caption className="icon-captions">
+            Your new pet = your new BFF, full of love and joy.
+          </Figure.Caption>
+        </Figure>
+        
+        <Figure>
+          <Figure.Image
+            src="/HealthIcon.png" className="homepage-icons"
+          />
+          <Figure.Caption className="icon-captions">
+            Your new BFF is 110% healthy and up to date with all vaccinations.
+          </Figure.Caption>
+        </Figure>
+
+        <Figure>
+          <Figure.Image
+            src="/DogAndHumanIcon.png" className="homepage-icons"
+          />
+          <Figure.Caption className="icon-captions">
+            Your BFF will bring you companionship and a good time.
+          </Figure.Caption>
+          </Figure>
+
+          <Figure>
+          <Figure.Image
+            src="/Paws.png" className="homepage-icons"
+          />
+          <Figure.Caption className="icon-captions">We will be along for the journey and provide you the support you both need.
+          </Figure.Caption>
+          </Figure>
+
+          <Figure>
+          <Figure.Image
+            src="/HeartIcon.png" className="homepage-icons"
+          />
+          <Figure.Caption className="icon-captions">Did we already mention love? SO MUCH LOVE.
+          </Figure.Caption>
+        </Figure>
+
+  
+
+        </div>
       </>
     );
   }
   
   export default Homepage;
+
+
