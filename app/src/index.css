@@ -332,3 +332,56 @@ code {
 .create-pet-radios-container {
   width: 400px
 }
+
+/* Edit A Pet Form */
+
+.edit-pet-form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  margin-bottom: 100px
+} 
+
+.edit-pet-guidelines-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: -30px;
+  padding-top: 50px
+}
+.edit-pet-guidelines-header {
+  font-family: "Bellota";
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.edit-pet-form-image {
+  height: 500px;
+  width: 500px;
+  align-self: center;
+  padding-top: 50px;
+  padding-bottom: 50px
+}
+
+.edit-pet-form-header {
+  font-family: "Bellota";
+  font-size: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.edit-pet-form-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-style: solid;
+  padding: 50px;
+  margin-top: 100px;
+  background-image: url("/gradient.jpeg");
+}
+.edit-pet-radios-container {
+  width: 400px
+}

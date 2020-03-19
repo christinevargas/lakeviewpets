@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Image, Button } from 'react-bootstrap'
+import { Edit } from 'react-feather' 
+
 
 
 let pet = {
@@ -18,6 +20,10 @@ const SinglePet: FC = () => {
         
         <div className="single-pet-intro-container">
           <h1 className="single-pet-name">{pet.name}</h1>
+          <Link to="/edit-pet-form">
+          <Edit className="edit-icon" size={40} color="black"></Edit>
+        </Link>
+          
           <Image src={pet.imgUrl} className="single-pet-image"></Image>
         </div>
         <div className="single-pet-data-container">
