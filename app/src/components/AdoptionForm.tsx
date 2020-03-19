@@ -10,7 +10,7 @@ const AdoptionForm: FC = () => {
         <h1 className="adoption-form-header">
             Pet Adoption Form
         </h1>
-        <Form.Row>
+        <Form.Row className="form-row">
             <Form.Group as={Col} controlId="formGridFirstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control type="fname" placeholder="First Name" />
@@ -88,9 +88,9 @@ const AdoptionForm: FC = () => {
             </Form.Group>
             </Form.Row>
           <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="I certify that I am 18 years or older." />
-            <Form.Check type="checkbox" label="I certify that all household members are in agreeance with this adoption." />
-            <Form.Check type="checkbox" label="I agree to pay the $200.00 adoption fee." />
+            <Form.Check type="checkbox" label="I certify that I am 18 years or older." className="checkbox"/>
+            <Form.Check type="checkbox" label="I certify that all household members are in agreeance with this adoption." className="checkbox"/>
+            <Form.Check type="checkbox" label="I agree to pay the $200.00 adoption fee." className="checkbox"/>
           </Form.Group>
           <Button variant="outline-info" type="submit">
             Submit
