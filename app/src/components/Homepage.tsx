@@ -129,9 +129,10 @@ const categories = [
           <Figure.Caption className="icon-captions">Did we already mention love? SO MUCH LOVE.
           </Figure.Caption>
         </Figure>
-
-  
-
+        </div>
+        <div className="homepage-footer">
+          <p>Lakeview Pets ©</p>
+          <p>info@lakeviewpets.com | (312) 312-3123</p>
         </div>
       </>
     );

@@ -99,7 +99,8 @@ code {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding-top: 50px
+  padding-top: 50px;
+  margin-bottom: 100px
 }
 
 .homepage-icons {
@@ -118,6 +119,15 @@ code {
   font-size: 30px;
   text-align: center;
   width: 250px;
+}
+
+.homepage-footer {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  font-family: "Amaranth";
+  font-style: italic;
+  background-image: url("/gradient.jpeg");
 }
 
  /* All Pets */
