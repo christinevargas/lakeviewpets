@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
+import { PlusSquare } from "react-feather"
   
 
 
@@ -22,7 +23,11 @@ let pets = [
       <div className="all-pets-page">
         <header className="all-pets-header">
           All Pets Available for Adoption
+          <Link to="/create-pet-form">
+          <PlusSquare className="plus-square-icon" size={40} color="black"></PlusSquare>
+        </Link>
         </header>
+       
         <div className="all-pets-container">
           {pets.map(pet => (
           <div key={pet.id} className="all-pets-cards">
