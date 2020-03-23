@@ -124,10 +124,11 @@ code {
 .homepage-footer {
   text-align: center;
   padding-top: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   font-family: "Amaranth";
   font-style: italic;
   background-image: url("/gradient.jpeg");
+  color: gray
 }
 
  /* All Pets */
@@ -231,9 +232,6 @@ code {
 .single-pet-button {
   height: 50px;
 }
-
-
-
 
 /* Adoption Form */
 .adoption-form-header {
@@ -394,4 +392,49 @@ code {
 }
 .edit-pet-radios-container {
   width: 400px
+}
+
+/* About Us/FAQ */
+
+.about-us-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  margin-bottom: 100px
+}
+
+.about-us-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.about-us-image {
+  padding-top: 75px;
+  padding-left: 50px;
+  height: 550px;
+  width: 700px
+}
+.about-us-text {
+  padding-top: 75px;
+  padding-right: 50px;
+  height: 300px;
+  width: 750px;
+  align-self: center;
+}
+.faq-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.faq-image {
+  padding-top: 75px;
+  height: 550px;
+  width: 500px
+}
+
+.faq-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

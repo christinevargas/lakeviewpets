@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { Link } from "react-router-dom"
 import { Figure, Jumbotron, Button, Container, Carousel } from 'react-bootstrap'
 
 
@@ -25,7 +26,9 @@ const categories = [
           We're Lakeview Pets and we're new in town. Let us introduce you to your new best friend. Find us (and your future BFF) at the intersection of Broadway & Wellington in Lakeview East.
         </p>
         <p>
+          <Link to="/about-us-faq">
           <Button variant="outline-info" className="homepage-buttons">Learn more</Button>
+          </Link>
         </p>
         </Container>
       </Jumbotron>

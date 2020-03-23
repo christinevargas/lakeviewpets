@@ -13,6 +13,7 @@ import CreatePetForm from './components/CreatePetForm'
 import EditPetForm from './components/EditPetForm'
 import AdoptionForm from './components/AdoptionForm'
 import Cart from './components/Cart'
+import AboutUs from './components/AboutUs'
 
 
 // export interface AppProps {
@@ -30,6 +31,7 @@ const App: FC = () => { //default props/values should go in as params
           <Route exact path="/adoption-form" component={AdoptionForm} />
           <Route exact path="/create-pet-form" component={CreatePetForm} />
           <Route exact path="/edit-pet-form" component={EditPetForm} />
+          <Route exact path="/about-us-faq" component={AboutUs} />
           <Route exact path="/cart" component={Cart} />
           
     </Router>
