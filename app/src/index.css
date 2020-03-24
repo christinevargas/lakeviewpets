@@ -403,7 +403,6 @@ code {
   align-content: space-between;
   margin-bottom: 100px
 }
-
 .about-us-container {
   display: flex;
   flex-direction: row;
@@ -424,17 +423,21 @@ code {
 }
 .faq-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
-
 .faq-image {
   padding-top: 75px;
+  padding-right: 50px;
   height: 550px;
   width: 500px
 }
-
 .faq-text {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin-left: 50px;
+  margin-top: 75px;
+  border-style: solid;
+}
+.card-header {
+  font-family: "Amaranth";
+  font-size: 25px;
+  color: #17a2b8;
 }

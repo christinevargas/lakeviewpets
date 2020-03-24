@@ -31,7 +31,7 @@ const SinglePet: FC = () => {
           <p>Species: {pet.species}</p>
           <p>Age: {pet.age}</p>
           <p>Description: {pet.description}</p>
-          <p>Adoption Fee: $200.00</p>
+          <p>Adoption Fee: $50.00</p>
         </div>
         <div className="single-pet-buttons-container">
           <Button variant="outline-info" className="single-pet-button">Add Pet to Crate</Button>
