@@ -8,7 +8,6 @@ const AboutUs: FC = () => {
       <div className="about-us-container">
         <Image src="/AboutUs.png" className="about-us-image"></Image>
         <Image src="/AboutUsText.png" className="about-us-text"></Image>
-
       </div>
    
       <div className="faq-container">
