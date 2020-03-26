@@ -28,7 +28,7 @@ const resolvers = {
               // imgUrl: args.imgUrl,
               // description: args.description,
               // available: args.available,
-              // price: args.price
+              // adoptionFee: args.adoptionFee
           },
         )
       },

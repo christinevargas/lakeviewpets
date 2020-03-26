@@ -4,23 +4,29 @@ await knex.schema.createTable('pets', table => {
     table
     .increments('id')
     .primary();
-    table.string('name').notNullable()
-    table.string('species').notNullable()
+    table.string('name')
+    table.string('species')
     table.string('imageUrl').defaultTo('https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png')
-    table.integer('age').notNullable()
-    table.string('description').defaultTo('More info coming soon!')
-    table.integer('price').notNullable()
+    table.integer('age')
+    table.string('description').defaultTo('More info coming soon!').notNullable()
+    table.integer('adoptionFee')
 })
 
 .createTable('users', table => {
     table
       .increments('id')
       .primary();
-    table.string('firstName').notNullable()
-    table.string('lastName').notNullable()
-    table.string('email').unique().notNullable()
-    table.string('password').notNullable()
-    table.boolean('admin').defaultTo('False')
+    table.string('firstName')
+    table.string('lastName')
+    table.string('email').unique()
+    table.string('password')
+    table.string('address')
+    table.string('address2')
+    table.string('city')
+    table.string('state')
+    table.integer('zipcode')
+    table.string('rentOrOwn')
+    table.boolean('isAdmin').defaultTo('False')
   })
 }
   

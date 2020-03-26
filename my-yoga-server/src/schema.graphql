@@ -6,7 +6,7 @@ type Query {
 }
 
 type Mutation {
-  createPet(pet: {id: ID!, name: String!, species: String!, imgUrl: String!, description: String!, available: Boolean!, price: Int!}): Pet
+  createPet(pet: {id: ID!, name: String!, species: String!, age: Int!, imgUrl: String!, description: String!, adoptionFee: Int!}): Pet
   
 }
 
@@ -25,5 +25,5 @@ type Mutation {
 #    imgUrl: String!
 #    description: String!
 #    available: Boolean!
-#    price: Int!
+#    adoptionFee: Int!
 # }

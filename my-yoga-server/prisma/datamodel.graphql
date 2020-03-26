@@ -2,10 +2,10 @@ type Pet {
   id: ID! @unique
   name: String
   species: String
-  imageUrl: String
   age: Int
+  imageUrl: String @default(value: "https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png")
   description: String
-  price: Int
+  adoptionFee: Int
 }
 
 type User {
@@ -14,12 +14,12 @@ type User {
   lastName: String
   email: Boolean
   password: String
-  admin: Boolean! @default(value: "false")
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  isAdmin: Boolean @default(value: "false")
 }
 
-type Order {
-  id: ID! @unique
-  total: Int
-  quantity: Int
-  status: String
-}

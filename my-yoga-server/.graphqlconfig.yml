@@ -10,5 +10,7 @@ projects:
       extensions:
         prisma: ../prisma/prisma.yml
         codegen:
-          -generator: prisma-binding
-          language: typescript
+          - generator: prisma-binding
+            language: typescript
+            output:
+              binding: generated/prisma.graphql
