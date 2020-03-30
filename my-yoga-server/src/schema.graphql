@@ -5,25 +5,30 @@ type Query {
   pet: Pet
 }
 
+
+
 type Mutation {
-  createPet(pet: {id: ID!, name: String!, species: String!, age: Int!, imgUrl: String!, description: String!, adoptionFee: Int!}): Pet
-  
+  createPet(data: PetCreateInput!): Pet!
+  # createUser(data: UserCreateInput!): User!
+  # updatePet(data: PetUpdateInput!, where: PetWhereUniqueInput!): Pet
+  # updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  # deletePet(where: PetWhereUniqueInput!): Pet
+  # deleteUser(where: UserWhereUniqueInput!): User
+  # upsertPet(where: PetWhereUniqueInput!, create: PetCreateInput!, update: PetUpdateInput!): Pet!
+  # upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  # updateManyPets(data: PetUpdateInput!, where: PetWhereInput): BatchPayload!
+  # updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  # deleteManyPets(where: PetWhereInput): BatchPayload!
+  # deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
 
-
-# type Mutation {
-#     # Add a new comment
-#     createPet(pet: createPetInput!): Pet
-# }
-
-# # Input type for a new Comment
-# input createPetInput {
-#    id: ID!
-#    name: String!
-#    species: String!
-#    imgUrl: String!
-#    description: String!
-#    available: Boolean!
-#    adoptionFee: Int!
-# }
+# Input type for a new Pet
+input PetCreateInput {
+  name: String
+  species: String
+  age: Int
+  imageUrl: String
+  description: String
+  adoptionFee: Int
+}

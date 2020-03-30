@@ -3,6 +3,7 @@ datamodel: datamodel.graphql
 disableAuth: true
 generate:
   - generator: graphql-schema
+
 hooks:
     post-deploy:
       - graphql get-schema -p prisma 

@@ -1,20 +1,26 @@
 type Pet @db(name: "pets") {
   id: Int! @id(strategy: SEQUENCE) @sequence(name: "pets_id_seq", initialValue: 1, allocationSize: 1)
-  age: Int!
-  description: String @default(value: "More info coming soon!")
+  name: String
+  species: String
+  age: Int
   imageUrl: String @default(value: "https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png")
-  name: String!
-  price: Int!
-  species: String!
+  description: String @default(value: "More info coming soon!")
+  adoptionFee: Int
 }
 
 type User @db(name: "users") {
   id: Int! @id(strategy: SEQUENCE) @sequence(name: "users_id_seq", initialValue: 1, allocationSize: 1)
-  admin: Boolean @default(value: true)
-  email: String! @unique
-  firstName: String!
-  lastName: String!
-  password: String!
+  firstName: String
+  lastName: String
+  email: Boolean
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  isAdmin: Boolean @default(value: "false")
 }
 
 type KnexMigration @db(name: "knex_migrations") {
