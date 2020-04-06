@@ -2,9 +2,9 @@
 # import Customer from './generated/prisma.graphql'
 
 type Query {
-  pet: Pet
+  pets: Pet
+  pet(id: ID!): Pet
 }
-
 
 
 type Mutation {
