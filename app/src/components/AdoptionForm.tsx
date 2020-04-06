@@ -48,7 +48,7 @@ const AdoptionForm: FC = () => {
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
-              <Form.Control as="select" value="Choose...">
+              <Form.Control as="select" defaultValue="Choose...">
                 <option>Choose...</option>
                 <option>IL</option>
               </Form.Control>

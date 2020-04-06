@@ -14,7 +14,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: "http://localhost:4466/"
+  uri: "http://localhost:4466/my-yoga-server/dev"
 });
 
 const client = new ApolloClient({

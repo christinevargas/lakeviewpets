@@ -23,10 +23,10 @@ import { GET_ALL_PETS } from "../queries";
         </header>
        
         <div className="all-pets-container">
-          {data.pets.map((pet: { id: string | number ; imageUrl: string; name: string; species: string; age: number; description: string; adoptionFee: number }) => (
+          {data.pets.map((pet: { id: string; imageUrl: string; name: string; species: string; age: number; description: string; adoptionFee: number }) => (
           <div key={pet.id} className="all-pets-cards">
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={pet.imageUrl} />
+              <Card.Img variant="top" src={pet.imageUrl} className="pet-card-img"/>
               <Card.Body>
                 <Card.Title className='pet-name'>{pet.name}</Card.Title>
                 <Card.Text>Species: {pet.species}</Card.Text>

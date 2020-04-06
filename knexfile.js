@@ -4,7 +4,12 @@ module.exports = {
 
   development: {
     client: 'postgresql',
-    connection: 'postgres://localhost:5432/lakeviewpets',
+    connection: {
+      database: "postgres",
+      host: "localhost",
+      user: "prisma",
+      password: "prisma",
+    },
     migrations: {
         directory: 'my-yoga-server/migrations'
     },

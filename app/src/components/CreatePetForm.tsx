@@ -1,13 +1,30 @@
-import React, { FC } from 'react'
-import { Form, Col, Row, Button, Image, ListGroup } from 'react-bootstrap'
+import React, { FC, useState } from 'react'
+import { Form, Button, Image, ListGroup } from 'react-bootstrap'
+
+import { useMutation } from '@apollo/react-hooks'
 
 const CreatePetForm: FC = () => {
+
+  // const handleKeyUp = (evt) => {
+  //   if (evt.keyCode === 13) {
+  //     console.log(evt.target.value);
+  //     evt.target.value = '';
+  //   }
+  // };
+  const [name, setName] = useState('');
+  const [species, setSpecies] = useState('')
+  const [age, setAge] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [description, setDescription] = useState('');
+
+
+
+
     return (
       <div className="create-pet-form-container">
         <div className="create-pet-guidelines-container">
         <Image src="/FrontFacingBunny.png" className="create-pet-form-image"></Image>      
           <h1 className="create-pet-guidelines-header">New Pet Guidelines</h1>
-            {/* <p className="rules">In order to be adopted, all new pets must:</p> */}
             <div>
             <ListGroup variant="flush">
               <ListGroup.Item>1. One form must be submitted per each new pet.</ListGroup.Item>
@@ -70,7 +87,7 @@ const CreatePetForm: FC = () => {
           <Form.Label>Description</Form.Label>
           <Form.Control as="textarea" rows="3" />
         </Form.Group>
-        <div className="create-pet-radios-container">
+        {/* <div className="create-pet-radios-container">
         <Form.Group as={Row}>
           <Form.Label column lg={6}>
             Available for adoption?
@@ -90,7 +107,7 @@ const CreatePetForm: FC = () => {
             />
           </Col>
         </Form.Group>
-        </div>
+        </div> */}
         <Button variant="outline-info">Add New Pet</Button>
       </Form>
     </div>
