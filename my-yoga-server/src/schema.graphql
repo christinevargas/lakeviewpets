@@ -1,14 +1,15 @@
 # import Pet from './generated/prisma.graphql'
-# import Customer from './generated/prisma.graphql'
+# import User from './generated/prisma.graphql'
 
 type Query {
   pets: Pet
-  pet(id: ID!): Pet
+  pet($id: ID!): Pet
+
 }
 
 
 type Mutation {
-  createPet(data: PetCreateInput!): Pet!
+  createPet(data: PetCreateInput!): Pet
   # createUser(data: UserCreateInput!): User!
   # updatePet(data: PetUpdateInput!, where: PetWhereUniqueInput!): Pet
   # updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
@@ -24,7 +25,8 @@ type Mutation {
 
 
 # Input type for a new Pet
-input PetCreateInput {
+type PetCreateInput {
+  # id: ID!
   name: String
   species: String
   age: Int
@@ -32,3 +34,8 @@ input PetCreateInput {
   description: String
   adoptionFee: Int
 }
+
+input PetWhereUniqueInput {
+  id: String
+}
+

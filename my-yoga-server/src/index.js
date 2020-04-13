@@ -9,8 +9,8 @@ const resolvers = {
         return context.prisma.query.pets()
         info
       },
-      singlePet(_, args, context, info){
-        return context.prisma.query.singlePet(
+      pet(_, args, context, info){
+        return context.prisma.query.pet(
           {
             where: { id: args.id }
           }
@@ -36,7 +36,6 @@ const resolvers = {
             info,
         });
       },
-    
       deletePet: (_, args, context, info) => {
         return context.prisma.mutation.deletePet(
           {
