@@ -6,9 +6,22 @@ import { useQuery } from "@apollo/react-hooks";
 import { GET_ALL_PETS } from "../queries";
 
 
+interface Pet {
+  id: string
+  name: string
+  species: string
+  age: number
+  imageUrl: string
+  description: string
+  adoptionFee: number
+}
+
   const AllPets: FC = () => {
     const { data, loading, error } = useQuery(GET_ALL_PETS);
 
+
+    //TODO:
+    // Create reusable React component for the 3 lines below
       if (loading) return <p>LOADING</p>;
       if (error) return <p>ERROR</p>;
       if (!data) return <p>Not found</p>;
@@ -23,7 +36,7 @@ import { GET_ALL_PETS } from "../queries";
         </header>
        
         <div className="all-pets-container">
-          {data.pets.map((pet: { id: string; imageUrl: string; name: string; species: string; age: number; description: string; adoptionFee: number }) => (
+          {data.pets.map((pet: Pet) => (
           <div key={pet.id} className="all-pets-cards">
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={pet.imageUrl} className="pet-card-img"/>

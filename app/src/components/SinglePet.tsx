@@ -10,34 +10,35 @@ const SinglePet: FC<RouteComponentProps> = (props) => {
   let propsId = Object.values(props.match.params)
   let petId = propsId.toString()
 
-  // console.log(petId)
-  // console.log(props)
-
   const { data, loading, error } = useQuery(GET_PET,
     {
     variables: { id: petId}
     }
   );
 
+  //TODO:
+  // Create reusable React component for the 3 lines below
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error...</p>
+  if (!data) return <p>Not Found</p>
 
+  const { name, species, age, imageUrl, description } = data.pet
     return (
 
       <div className="single-pet-container">
         <div className="single-pet-intro-container">
-          <h1 className="single-pet-name">{data.pet.name}</h1>
+          <h1 className="single-pet-name">{name}</h1>
           <Link to="/edit-pet-form">
           <Edit className="edit-icon" size={40} color="black"></Edit>
         </Link>
           
-          <Image src={data.pet.imageUrl} className="single-pet-image"></Image>
+          <Image src={imageUrl} className="single-pet-image"></Image>
         </div>
         <div className="single-pet-data-container">
           <h3 className="single-pet-header">Get to know me...</h3>
-          <p>Species: {data.pet.species}</p>
-          <p>Age: {data.pet.age}</p>
-          <p>Description: {data.pet.description}</p>
+          <p>Species: {species}</p>
+          <p>Age: {age}</p>
+          <p>Description: {description}</p>
           <p>Adoption Fee: $50.00</p>
         </div>
         <div className="single-pet-buttons-container">

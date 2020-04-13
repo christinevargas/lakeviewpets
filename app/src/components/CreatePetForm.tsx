@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, ChangeEvent } from 'react'
 import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_PET } from '../mutations'
@@ -14,6 +14,24 @@ type PetCreateInput = {
 }
 
 const CreatePetForm: FC = () => {
+
+  //TODO: Refactor to use a model so then all onChange functions could just use 1 function. The below commented out code is part of this process.
+
+  // const [pet, createPet] = useState({
+  //   name: '',
+  //   species: '',
+  //   age: Number(''),
+  //   imageUrl: '',
+  //   description: '',
+  //   adoptionFee: 50
+  // })
+
+
+  // const handleCreatePet = (event: ChangeEvent<HTMLInputElement>) => {
+  //   createPet({
+  //     [event.currentTarget.name]: event.currentTarget.value
+  //   } as any)
+  // }
 
   const [name, setName] = useState('');
   const [species, setSpecies] = useState('')
@@ -107,7 +125,7 @@ const CreatePetForm: FC = () => {
           type="submit"
           onClick={(event:any): void => {
             event.preventDefault();
-            if(name !== "" && species !== "" && imageUrl !== "" && description !== ""){
+            if(name && species && age && description){
               const data: PetCreateInput = {
                 name: name,
                 species: species,

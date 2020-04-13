@@ -16,24 +16,39 @@ const resolvers = {
           }
         )
       }
-      // user: (_, args, context, info) => {
-      //   return context.prisma.query.user,
-      //   info
-      // },
     },
     Mutation: {
       createPet: (_, args, context, info) => {
+        const { name, species, age, imageUrl, description, adoptionFee } = args;
+
         return context.prisma.mutation.createPet({
             data: {
               id,
-              name: args.name,
-              species: args.species,
-              age: args.age,
-              imgUrl: args.imgUrl,
-              description: args.description,
-              adoptionFee: args.adoptionFee
+              name,
+              species,
+              age,
+              imageUrl,
+              description,
+              adoptionFee
             },
             info,
+        });
+      },
+      updatePet: (_, args, context, info) => {
+        const { name, species, age, imageUrl, description, adoptionFee } = args;
+        return context.prisma.mutation.updatePet({
+          where: {
+            id: id,
+          },
+          data: {
+            name,
+            species,
+            age,
+            imgUrl,
+            description,
+            adoptionFee
+          },
+          info,
         });
       },
       deletePet: (_, args, context, info) => {
