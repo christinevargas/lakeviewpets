@@ -1,4 +1,4 @@
-import React, { FC, useState, ChangeEvent } from 'react'
+import React, { FC, useState } from 'react'
 import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_PET } from '../mutations'
@@ -15,30 +15,20 @@ type PetCreateInput = {
 
 const CreatePetForm: FC = () => {
 
-  //TODO: Refactor to use a model so then all onChange functions could just use 1 function. The below commented out code is part of this process.
+  const [pet, createPet] = useState({
+    name: '',
+    species: '',
+    age: Number(''),
+    imageUrl: '',
+    description: '',
+    adoptionFee: 50
+  })
 
-  // const [pet, createPet] = useState({
-  //   name: '',
-  //   species: '',
-  //   age: Number(''),
-  //   imageUrl: '',
-  //   description: '',
-  //   adoptionFee: 50
-  // })
+  const { name, species, age, imageUrl, description, adoptionFee } = pet
 
-
-  // const handleCreatePet = (event: ChangeEvent<HTMLInputElement>) => {
-  //   createPet({
-  //     [event.currentTarget.name]: event.currentTarget.value
-  //   } as any)
-  // }
-
-  const [name, setName] = useState('');
-  const [species, setSpecies] = useState('')
-  const [age, setAge] = useState(Number(''));
-  const [imageUrl, setImageUrl] = useState('');
-  const [description, setDescription] = useState('');
-  const [adoptionFee, setAdoptionFee] = useState(50)
+  const handleCreatePet = (attributeToUpdate: any) => {
+    createPet({...pet, ...attributeToUpdate})
+  }
   
   const [createPetMutation] = useMutation(CREATE_PET, {
     onCompleted: () => console.log('Pet added!'),
@@ -67,11 +57,11 @@ const CreatePetForm: FC = () => {
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Pet Name
           </Form.Label>
-          <Form.Control type="fname" placeholder="Pet Name" value={name} onChange={(event:any) => setName(event.target.value)}/>
+          <Form.Control type="fname" placeholder="Pet Name" value={name} onChange={ (event: any) => handleCreatePet({ name: event.target.value })}/>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>Species</Form.Label>
-          <Form.Control as="select" value={species} onChange={(event:any) => setSpecies(event.target.value)}>
+          <Form.Control as="select" value={species} onChange={ (event: any) => handleCreatePet({ species: event.target.value })}>
             <option>Select</option>
             <option>Dog</option>
             <option>Cat</option>
@@ -81,7 +71,7 @@ const CreatePetForm: FC = () => {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect2">
           <Form.Label>Age</Form.Label>
-          <Form.Control as="select" onChange={(event:any) => setAge(Number(event.target.value))}> 
+          <Form.Control as="select" onChange={ (event: any) => handleCreatePet({ age: +event.target.value })}> 
             <option>In years</option>
             <option>0</option>
             <option>1</option>
@@ -106,17 +96,17 @@ const CreatePetForm: FC = () => {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Image URL</Form.Label>
-          <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={(event:any) => setImageUrl(event.target.value)}/>
+          <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={ (event: any) => handleCreatePet({ imageUrl: event.target.value })}/>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea2">
           <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" rows="3" value={description} onChange={(event:any) => setDescription(event.target.value)}/>
+          <Form.Control as="textarea" rows="3" value={description} onChange={ (event: any) => handleCreatePet({ description: event.target.value })}/>
         </Form.Group>
 
 
         <Form.Group controlId="exampleForm.ControlTextarea3">
           <Form.Label>Adoption Fee: $</Form.Label>
-          <Form.Control as="select" onChange={(event:any) => setAdoptionFee(50)}>
+          <Form.Control as="select" onChange={ (event: any) => handleCreatePet({ adoptionFee: event.target.value })}>
           <option>50</option>
           </Form.Control>
         </Form.Group>
@@ -127,12 +117,12 @@ const CreatePetForm: FC = () => {
             event.preventDefault();
             if(name && species && age && description){
               const data: PetCreateInput = {
-                name: name,
-                species: species,
-                age: age,
-                imageUrl: imageUrl,
-                description: description,
-                adoptionFee: adoptionFee
+                name,
+                species,
+                age,
+                imageUrl,
+                description,
+                adoptionFee
               };
               createPetMutation({ variables: { data: data }});
             } else {
