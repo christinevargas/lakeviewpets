@@ -1,9 +1,8 @@
 import gql from "graphql-tag";
-// import { RouteComponentProps } from 'react-router-dom';
 
 export default gql`
-  query pet($id: String!) {
-    pet(id: $id) {
+  query pet($id: ID!) {
+    pet(where: { id: $id }) {
       name
       species
       age
