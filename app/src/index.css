@@ -157,7 +157,7 @@ code {
 .all-pets-cards {
   /* flex-grow: 1; */
   align-content: flex-start;
-  padding: 30px
+  padding: 30px;
 }
 
 .pet-name {
@@ -183,6 +183,12 @@ code {
   font-family: "Amaranth";
   font-size: 30px;
   color: black
+}
+
+.pet-card-img {
+  height: 150px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 

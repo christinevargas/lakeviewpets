@@ -1,5 +1,17 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
+import { useMutation, useQuery } from '@apollo/react-hooks'
 import { Form, Col, Row, Button, Image, ListGroup } from 'react-bootstrap'
+import { GET_PET } from '../../src/queries';
+import { UPDATE_PET } from '../../src/mutations';
+
+type PetUpdateInput = {
+  name: String
+  species: String
+  age: Number
+  imageUrl: String
+  description: String
+  adoptionFee: Number
+}
 
 const EditPetForm: FC = () => {
     return (
@@ -7,7 +19,6 @@ const EditPetForm: FC = () => {
       <div className="edit-pet-guidelines-container">
       <Image src="/Bird.png" className="edit-pet-form-image"></Image>      
         <h1 className="edit-pet-guidelines-header">Edit A Pet Guidelines</h1>
-          {/* <p className="rules">In order to be adopted, all new pets must:</p> */}
           <div>
           <ListGroup variant="flush">
             <ListGroup.Item>1. Only edit the necessary fields.</ListGroup.Item>
@@ -98,4 +109,4 @@ const EditPetForm: FC = () => {
   }
   
   export default EditPetForm;
-  
+

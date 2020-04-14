@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import './App.css'; //unsure if needed
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -14,11 +14,6 @@ import EditPetForm from './components/EditPetForm'
 import AdoptionForm from './components/AdoptionForm'
 import Cart from './components/Cart'
 import AboutUs from './components/AboutUs'
-
-
-// export interface AppProps {
-//   readonly prop1: string;
-// }
 
 
 const App: FC = () => { //default props/values should go in as params 

@@ -67,15 +67,15 @@ const createFakeBunnies = () => ({
 
 //SEED DOGS
 
-// exports.seed = async function(knex, Promise) {
-//   const fakeDogs = [];
-//   const desiredFakeDogs = 20;
+exports.seed = async function(knex, Promise) {
+  const fakeDogs = [];
+  const desiredFakeDogs = 20;
 
-//   for(let i = 0; i < desiredFakeDogs; i++) {
-//     fakeDogs.push(createFakeDogs());
-//   }
-//   await knex("pets").insert(fakeDogs)
-// };
+  for(let i = 0; i < desiredFakeDogs; i++) {
+    fakeDogs.push(createFakeDogs());
+  }
+  await knex("pets").insert(fakeDogs)
+};
 
 // SEED CATS
 
@@ -104,12 +104,12 @@ const createFakeBunnies = () => ({
 
 //SEED BUNNIES 
 
-exports.seed = async function(knex, Promise) {
-  const fakeBunnies = [];
-  const desiredFakeBunnies = 20;
+// exports.seed = async function(knex, Promise) {
+//   const fakeBunnies = [];
+//   const desiredFakeBunnies = 20;
 
-  for(let i = 0; i < desiredFakeBunnies; i++) {
-    fakeBunnies.push(createFakeBunnies());
-  }
-  await knex("pets").insert(fakeBunnies)
-};
+//   for(let i = 0; i < desiredFakeBunnies; i++) {
+//     fakeBunnies.push(createFakeBunnies());
+//   }
+//   await knex("pets").insert(fakeBunnies)
+// };
