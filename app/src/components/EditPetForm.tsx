@@ -47,8 +47,6 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
 
   const { name, species, age, imageUrl, description, adoptionFee } = petToUpdate
 
-   //TODO:
-  // Pet info is not being updated -- I believe the issue lies within this function.
   const handleUpdatePet = (attributeToUpdate: any): void => {
     updatePet({ ...petToUpdate, ...attributeToUpdate });
   };
