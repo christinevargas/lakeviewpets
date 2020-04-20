@@ -13,6 +13,7 @@ type PetCreateInput = {
   adoptionFee: Number
 }
 
+
 const CreatePetForm: FC = () => {
 
   const [pet, createPet] = useState({
@@ -38,7 +39,7 @@ const CreatePetForm: FC = () => {
     return (
       <div className="create-pet-form-container">
         <div className="create-pet-guidelines-container">
-        <Image src="/FrontFacingBunny.png" className="create-pet-form-image"></Image>      
+        <Image src={"/FrontFacingBunny.png"} className="create-pet-form-image"></Image>      
           <h1 className="create-pet-guidelines-header">New Pet Guidelines</h1>
             <div>
             <ListGroup variant="flush">
@@ -102,12 +103,10 @@ const CreatePetForm: FC = () => {
           <Form.Label>Description</Form.Label>
           <Form.Control as="textarea" rows="3" value={description} onChange={ (event: any) => handleCreatePet({ description: event.target.value })}/>
         </Form.Group>
-
-
         <Form.Group controlId="exampleForm.ControlTextarea3">
-          <Form.Label>Adoption Fee: $</Form.Label>
+          <Form.Label>Adoption Fee:</Form.Label>
           <Form.Control as="select" onChange={ (event: any) => handleCreatePet({ adoptionFee: event.target.value })}>
-          <option>50</option>
+          <option>$50</option>
           </Form.Control>
         </Form.Group>
         <Button
@@ -115,7 +114,7 @@ const CreatePetForm: FC = () => {
           type="submit"
           onClick={(event:any): void => {
             event.preventDefault();
-            if(name && species && age && description){
+            if(pet){
               const data: PetCreateInput = {
                 name,
                 species,

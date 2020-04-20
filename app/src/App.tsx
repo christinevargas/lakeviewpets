@@ -25,7 +25,7 @@ const App: FC = () => { //default props/values should go in as params
           <Route exact path="/pets/:id" component={SinglePet} />
           <Route exact path="/adoption-form" component={AdoptionForm} />
           <Route exact path="/create-pet-form" component={CreatePetForm} />
-          <Route exact path="/edit-pet-form" component={EditPetForm} />
+          <Route exact path="/edit-pet-form/:id" component={EditPetForm} />
           <Route exact path="/about-us-faq" component={AboutUs} />
           <Route exact path="/cart" component={Cart} />
           

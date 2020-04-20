@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
+import { RouteComponentProps } from 'react-router-dom'
 import { useMutation, useQuery } from '@apollo/react-hooks'
-import { Form, Col, Row, Button, Image, ListGroup } from 'react-bootstrap'
+import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import { GET_PET } from '../../src/queries';
 import { UPDATE_PET } from '../../src/mutations';
 
@@ -13,11 +14,49 @@ type PetUpdateInput = {
   adoptionFee: Number
 }
 
-const EditPetForm: FC = () => {
+const EditPetForm: FC<RouteComponentProps> = (props) => {
+
+  // let propsId = Object.values(props.match.params)
+  // let petId = propsId.toString()
+
+  // const { data, loading, error } = useQuery(GET_PET,
+  //   {
+  //   variables: { id: petId}
+  //   }
+  // );
+
+  const [petToUpdate, updatePet] = useState({
+    name: "",
+    species: "",
+    age: Number(""),
+    imageUrl: "",
+    description: "",
+    adoptionFee: 50
+  })
+
+  const [updatePetMutation] = useMutation(UPDATE_PET, {
+    onCompleted: () => console.log('Pet updated!')
+  })
+
+  //TODO:
+  // Create reusable React component for the 3 lines below
+  // if (loading) return <p>Loading...</p>
+  // if (error) return <p>Error...</p>
+  // if (!data) return <p>Not Found</p>
+
+
+  const { name, species, age, imageUrl, description, adoptionFee } = petToUpdate
+
+   //TODO:
+  // Pet info is not being updated -- I believe the issue lies within this function.
+  const handleUpdatePet = (attributeToUpdate: any): void => {
+    updatePet({ ...petToUpdate, ...attributeToUpdate });
+  };
+
     return (
       <div className="edit-pet-form-container">
       <div className="edit-pet-guidelines-container">
-      <Image src="/Bird.png" className="edit-pet-form-image"></Image>      
+      <Image src={imageUrl} className="edit-pet-form-image"></Image>      
         <h1 className="edit-pet-guidelines-header">Edit A Pet Guidelines</h1>
           <div>
           <ListGroup variant="flush">
@@ -35,11 +74,11 @@ const EditPetForm: FC = () => {
       </h1>
       <Form.Group controlId="exampleForm.ControlInput1">
         <Form.Label>Pet Name</Form.Label>
-        <Form.Control type="fname" placeholder="Pet Name" />
+        <Form.Control type="fname" value={name} onChange={ (event: any) => handleUpdatePet({name: event.target.value })}/>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label>Species</Form.Label>
-        <Form.Control as="select">
+        <Form.Control as="select" value={species} onChange={ (event: any) => handleUpdatePet({species: event.target.value })}>
           <option>Select</option>
           <option>Dog</option>
           <option>Cat</option>
@@ -49,7 +88,7 @@ const EditPetForm: FC = () => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect2">
         <Form.Label>Age</Form.Label>
-        <Form.Control as="select">
+        <Form.Control as="select" onChange={ (event: any) => handleUpdatePet({age: +event.target.value })}>
           <option>In years</option>
           <option>1</option>
           <option>2</option>
@@ -75,95 +114,41 @@ const EditPetForm: FC = () => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Form.Label>Image URL</Form.Label>
-        <Form.Control type="text" placeholder="Image URL" />
+        <Form.Control type="text" value={imageUrl} onChange={ (event: any) => handleUpdatePet({imageUrl: event.target.value })}/>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea2">
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" rows="3" />
+        <Form.Control as="textarea" rows="3" value={description} onChange={ (event: any) => handleUpdatePet({description: event.target.value })}/>
       </Form.Group>
-      <div className="edit-pet-radios-container">
-      <Form.Group as={Row}>
-        <Form.Label column lg={6}>
-          Available for adoption?
-        </Form.Label>
-        <Col lg={10} >
-          <Form.Check
-            type="radio"
-            label="Yes"
-            name="formHorizontalRadios"
-            id="formHorizontalRadios1"
-          />
-          <Form.Check
-            type="radio"
-            label="No"
-            name="formHorizontalRadios"
-            id="formHorizontalRadios1"
-          />
-        </Col>
-      </Form.Group>
-      </div>
-      <Button variant="outline-info">Save Changes</Button>
+      <Form.Group controlId="exampleForm.ControlTextarea3">
+          <Form.Label>Adoption Fee:</Form.Label>
+          <Form.Control as="select" onChange={ (event: any) => handleUpdatePet({adoptionFee: event.target.value })}>
+          <option>$50</option>
+          </Form.Control>
+        </Form.Group>
+      <Button
+        variant="outline-info"
+        type="submit"
+        onClick={(event:any): void => {
+          event.preventDefault();
+          if(petToUpdate){
+            const data: PetUpdateInput = {
+              name: petToUpdate.name,
+              species: petToUpdate.species,
+              age: petToUpdate.age,
+              imageUrl: petToUpdate.imageUrl,
+              description: petToUpdate.description,
+              adoptionFee: petToUpdate.adoptionFee
+            };
+            updatePetMutation({ variables: { data: data, id: props.match.params }});
+          } else {
+            console.log('Oops! Looks like there was an error. Pet was not updated.')
+          }
+        }}
+        >Save Changes</Button>
     </Form>
   </div>
     );
   }
   
   export default EditPetForm;
-  
-
-
-// export const EditPost = ({ match }: any): JSX.Element => {
-//   const [updatePostInput, setUpdatePostInput] = useState({ title: '', content: '' });
-//   const { loading, error, data } = useQuery(GET_POST, {
-//     variables: {
-//       id: match.params.id,
-//     },
-//   });
-//   const [editMutation] = useMutation(EDIT_POST, {
-//     onCompleted: () => console.log('post completed!'),
-//   });
-
-//   const postMutation = (): void => {
-//     const URL = `${window.location.origin}${Routes.POST.route}`;
-//     window.open(URL, '_self');
-//   };
-
-//   const handleInputChange = (
-//     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
-//   ): void => {
-//     event.persist();
-//     setUpdatePostInput(updatePostInput => ({ ...updatePostInput, [event.target.name]: event.target.value }));
-//   };
-
-//   const updatePost = (): void => {
-//       console.log(updatePostInput);
-//     //editMutation({ variables: { input: UpdatePostInput } });
-//   };
-
-//   if (data && data.post) {
-//     console.log(JSON.stringify(data));
-//     return (
-//       <div>
-//         <div>
-//           <Textfield label="Title" name="title" value={data.post.title} onChange={handleInputChange} />
-//           <Textfield label="Content" name="content" value={data.post.content} onChange={handleInputChange} />
-//           <div className="AddPost-Button">
-//             <CustomButton
-//               title="Save"
-//               onClick={() => {
-//                 updatePost();
-//               }}
-//             ></CustomButton>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-//   if (error) {
-//     return <div>{JSON.stringify(error)}</div>;
-//   }
-//   return <div>No results returned</div>;
-// };

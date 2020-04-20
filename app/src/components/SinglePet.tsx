@@ -28,9 +28,9 @@ const SinglePet: FC<RouteComponentProps> = (props) => {
       <div className="single-pet-container">
         <div className="single-pet-intro-container">
           <h1 className="single-pet-name">{name}</h1>
-          <Link to="/edit-pet-form">
-          <Edit className="edit-icon" size={40} color="black"></Edit>
-        </Link>
+          <Link to={`/edit-pet-form/${petId}`}>
+            <Edit className="edit-icon" size={40} color="black"></Edit>
+          </Link>
           
           <Image src={imageUrl} className="single-pet-image"></Image>
         </div>

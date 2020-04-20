@@ -20,7 +20,6 @@ const resolvers = {
     Mutation: {
       createPet: (_, args, context, info) => {
         const { name, species, age, imageUrl, description, adoptionFee } = args;
-
         return context.prisma.mutation.createPet({
             data: {
               id,
@@ -44,7 +43,7 @@ const resolvers = {
             name,
             species,
             age,
-            imgUrl,
+            imageUrl,
             description,
             adoptionFee
           },
