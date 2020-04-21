@@ -1,8 +1,10 @@
 import React, { FC, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { useMutation, useQuery } from '@apollo/react-hooks'
-import { Form, Button, Image, ListGroup } from 'react-bootstrap'
-import { GET_PET } from '../../src/queries';
+import { Form, Button, Image, ListGroup, Toast } from 'react-bootstrap'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+// import { GET_PET } from '../../src/queries';
 import { UPDATE_PET } from '../../src/mutations';
 
 type PetUpdateInput = {
@@ -14,8 +16,12 @@ type PetUpdateInput = {
   adoptionFee: Number
 }
 
+toast.configure()
+
 const EditPetForm: FC<RouteComponentProps> = (props) => {
 
+  //TODO: 
+  //Figure out how to prepopulate form with pet to edit's info. Code below is related to this todo.
   // let propsId = Object.values(props.match.params)
   // let petId = propsId.toString()
 
@@ -35,7 +41,7 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
   })
 
   const [updatePetMutation] = useMutation(UPDATE_PET, {
-    onCompleted: () => console.log('Pet updated!')
+    onCompleted: () => toast('Success! Pet updated!', {type: 'success'})
   })
 
   //TODO:

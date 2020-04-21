@@ -1,4 +1,6 @@
 import React, { FC, useState } from 'react'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_PET } from '../mutations'
@@ -13,6 +15,7 @@ type PetCreateInput = {
   adoptionFee: Number
 }
 
+toast.configure()
 
 const CreatePetForm: FC = () => {
 
@@ -32,9 +35,8 @@ const CreatePetForm: FC = () => {
   }
   
   const [createPetMutation] = useMutation(CREATE_PET, {
-    onCompleted: () => console.log('Pet added!'),
+    onCompleted: () => toast('Success! Pet created!', {type: 'success'}),
   })
-
 
     return (
       <div className="create-pet-form-container">
@@ -125,7 +127,9 @@ const CreatePetForm: FC = () => {
               };
               createPetMutation({ variables: { data: data }});
             } else {
-              console.log('Oops! Looks like there was an error. Pet was not created.')
+              toast('Oops! Looks like there was an error! Pet was not created.', {
+                type: 'error'
+              })
             }
           }}
         >Add New Pet
