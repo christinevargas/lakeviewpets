@@ -1,10 +1,9 @@
 import React, { FC, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { useMutation, useQuery } from '@apollo/react-hooks'
-import { Form, Button, Image, ListGroup, Toast } from 'react-bootstrap'
+import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-// import { GET_PET } from '../../src/queries';
 import { UPDATE_PET } from '../../src/mutations';
 
 type PetUpdateInput = {
@@ -20,19 +19,10 @@ toast.configure()
 
 const EditPetForm: FC<RouteComponentProps> = (props) => {
 
-  //TODO: 
-  //Figure out how to prepopulate form with pet to edit info. Code below is related to this todo.
-  // let propsId = Object.values(props.match.params)
-  // let petId = propsId.toString()
+const pet: any = props.location.state;
 
-  // const { data, loading, error } = useQuery(GET_PET,
-  //   {
-  //   variables: { id: petId}
-  //   }
-  // );
-
-  const [validated, setValidated] = useState(false);
-  const handleSubmit = (event: any) => {
+const [validated, setValidated] = useState(false);
+const handleSubmit = (event: any) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -42,12 +32,12 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
   };
 
   const [petToUpdate, updatePet] = useState({
-    name: "",
-    species: "",
-    age: Number(""),
-    imageUrl: "",
-    description: "",
-    adoptionFee: 50
+    name: pet.name,
+    species: pet.species,
+    age: pet.age,
+    imageUrl: pet.imageUrl,
+    description: pet.description,
+    adoptionFee: pet.adoptionFee
   })
 
   const [updatePetMutation] = useMutation(UPDATE_PET, {
@@ -103,7 +93,7 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect2">
         <Form.Label>Age</Form.Label>
-        <Form.Control required as="select" onChange={ (event: any) => handleUpdatePet({age: +event.target.value })}>
+        <Form.Control required as="select" value={age} onChange={ (event: any) => handleUpdatePet({age: +event.target.value })}>
           <option>In years</option>
           <option>1</option>
           <option>2</option>
@@ -143,7 +133,7 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea3">
           <Form.Label>Adoption Fee:</Form.Label>
-          <Form.Control as="select" onChange={ (event: any) => handleUpdatePet({adoptionFee: event.target.value })}>
+          <Form.Control as="select" value={adoptionFee} onChange={ (event: any) => handleUpdatePet({adoptionFee: event.target.value })}>
           <option>$50</option>
           </Form.Control>
         </Form.Group>
@@ -163,7 +153,9 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
             };
             updatePetMutation({ variables: { data: data, id: props.match.params }});
           } else {
-            console.log('Oops! Looks like there was an error. Pet was not updated.')
+            toast('Oops! Looks like there was an error! Pet was not updated.', {
+              type: 'error'
+            })
           }
         }}
         >Save Changes</Button>

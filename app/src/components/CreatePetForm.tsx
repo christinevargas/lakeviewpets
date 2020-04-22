@@ -116,7 +116,7 @@ const CreatePetForm: FC = () => {
           type="submit"
           onClick={(event:any): void => {
             event.preventDefault();
-            if(pet){
+            if(Object.keys(pet).length){
               const data: PetCreateInput = {
                 name,
                 species,
