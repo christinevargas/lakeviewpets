@@ -21,7 +21,7 @@ toast.configure()
 const EditPetForm: FC<RouteComponentProps> = (props) => {
 
   //TODO: 
-  //Figure out how to prepopulate form with pet to edit's info. Code below is related to this todo.
+  //Figure out how to prepopulate form with pet to edit info. Code below is related to this todo.
   // let propsId = Object.values(props.match.params)
   // let petId = propsId.toString()
 
@@ -30,6 +30,16 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
   //   variables: { id: petId}
   //   }
   // );
+
+  const [validated, setValidated] = useState(false);
+  const handleSubmit = (event: any) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+  };
 
   const [petToUpdate, updatePet] = useState({
     name: "",
@@ -72,17 +82,18 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
           </ListGroup>  
           </div>
       </div>
-      <Form className="edit-pet-form-fields">
+      <Form className="edit-pet-form-fields" noValidate validated={validated} onSubmit={handleSubmit}>
       <h1 className="edit-pet-form-header">
           Edit A Pet
       </h1>
       <Form.Group controlId="exampleForm.ControlInput1">
         <Form.Label>Pet Name</Form.Label>
-        <Form.Control type="fname" value={name} onChange={ (event: any) => handleUpdatePet({name: event.target.value })}/>
+        <Form.Control required type="fname" value={name} onChange={ (event: any) => handleUpdatePet({name: event.target.value })}/>
+        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label>Species</Form.Label>
-        <Form.Control as="select" value={species} onChange={ (event: any) => handleUpdatePet({species: event.target.value })}>
+        <Form.Control required as="select" value={species} onChange={ (event: any) => handleUpdatePet({species: event.target.value })}>
           <option>Select</option>
           <option>Dog</option>
           <option>Cat</option>
@@ -92,7 +103,7 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect2">
         <Form.Label>Age</Form.Label>
-        <Form.Control as="select" onChange={ (event: any) => handleUpdatePet({age: +event.target.value })}>
+        <Form.Control required as="select" onChange={ (event: any) => handleUpdatePet({age: +event.target.value })}>
           <option>In years</option>
           <option>1</option>
           <option>2</option>
@@ -118,11 +129,17 @@ const EditPetForm: FC<RouteComponentProps> = (props) => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Form.Label>Image URL</Form.Label>
-        <Form.Control type="text" value={imageUrl} onChange={ (event: any) => handleUpdatePet({imageUrl: event.target.value })}/>
+        <Form.Control required type="text" value={imageUrl} onChange={ (event: any) => handleUpdatePet({imageUrl: event.target.value })}/>
+        <Form.Control.Feedback type="invalid">
+              Please provide an image url.
+            </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea2">
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" rows="3" value={description} onChange={ (event: any) => handleUpdatePet({description: event.target.value })}/>
+        <Form.Control required as="textarea" rows="3" value={description} onChange={ (event: any) => handleUpdatePet({description: event.target.value })}/>
+        <Form.Control.Feedback type="invalid">
+              Please provide a description.
+            </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea3">
           <Form.Label>Adoption Fee:</Form.Label>

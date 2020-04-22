@@ -3,6 +3,16 @@ const { importSchema } = require('graphql-import')
 const { Prisma } = require('prisma-binding')
 
 
+const yupValidation = {
+  async Mutation(resolve, root, args, context, info) {
+    console.log('yupValidation.Mutation -> before', args);
+    const result = await resolve(root, args, context, info);
+    console.log('yupValidation.Mutation -> after', result);
+    return result;
+  }
+}
+
+
 const resolvers = {
     Query: {
       pets(_, args, context, info){
@@ -66,6 +76,7 @@ const resolvers = {
 const server = new GraphQLServer({
   typeDefs: 'src/schema.graphql',
   resolvers,
+  middlewares: [yupMutationMiddleware()],
   context: req => ({
     ...req,
     prisma: new Prisma({
