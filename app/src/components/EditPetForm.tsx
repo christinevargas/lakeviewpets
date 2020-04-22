@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
-import { useMutation, useQuery } from '@apollo/react-hooks'
+import { useMutation } from '@apollo/react-hooks'
 import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -43,13 +43,6 @@ const handleSubmit = (event: any) => {
   const [updatePetMutation] = useMutation(UPDATE_PET, {
     onCompleted: () => toast('Success! Pet updated!', {type: 'success'})
   })
-
-  //TODO:
-  // Create reusable React component for the 3 lines below
-  // if (loading) return <p>Loading...</p>
-  // if (error) return <p>Error...</p>
-  // if (!data) return <p>Not Found</p>
-
 
   const { name, species, age, imageUrl, description, adoptionFee } = petToUpdate
 
@@ -94,7 +87,7 @@ const handleSubmit = (event: any) => {
       <Form.Group controlId="exampleForm.ControlSelect2">
         <Form.Label>Age</Form.Label>
         <Form.Control required as="select" value={age} onChange={ (event: any) => handleUpdatePet({age: +event.target.value })}>
-          <option>In years</option>
+          <option disabled>In years</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>

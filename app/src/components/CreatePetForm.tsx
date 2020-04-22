@@ -74,8 +74,8 @@ const CreatePetForm: FC = () => {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect2">
           <Form.Label>Age</Form.Label>
-          <Form.Control as="select" onChange={ (event: any) => handleCreatePet({ age: +event.target.value })}> 
-            <option>In years</option>
+          <Form.Control as="select" value={"In years"} onChange={ (event: any) => handleCreatePet({ age: +event.target.value })}> 
+            <option disabled>In years</option>
             <option>0</option>
             <option>1</option>
             <option>2</option>
