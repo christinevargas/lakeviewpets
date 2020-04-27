@@ -23,17 +23,21 @@ const SinglePet: FC<RouteComponentProps> = (props) => {
   if (!data) return <p>Not Found</p>
 
   const { name, species, age, imageUrl, description } = data.pet
+
     return (
 
       <div className="single-pet-container">
         <div className="single-pet-intro-container">
           <h1 className="single-pet-name">{name}</h1>
-          <Link to="/edit-pet-form">
-          <Edit className="edit-icon" size={40} color="black"></Edit>
-        </Link>
-          
+          <Link to={{
+            pathname: `/edit-pet-form/${petId}`,
+            state: data.pet
+         }}>
+            <Edit className="edit-icon" size={40} color="black"></Edit>
+          </Link>
           <Image src={imageUrl} className="single-pet-image"></Image>
         </div>
+        
         <div className="single-pet-data-container">
           <h3 className="single-pet-header">Get to know me...</h3>
           <p>Species: {species}</p>
@@ -43,7 +47,10 @@ const SinglePet: FC<RouteComponentProps> = (props) => {
         </div>
         <div className="single-pet-buttons-container">
           <Button variant="outline-info" className="single-pet-button">Add Pet to Crate</Button>
+          <Link to={`/adoption-form`}>
           <Button variant="outline-info" className="single-pet-button">Go To Adoption Form</Button>
+          </Link>
+          
         </div>
       </div>
     );

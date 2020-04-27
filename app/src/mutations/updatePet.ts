@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export default gql`
-  mutation updatePet($data: PetUpdateInput!) {
-    createPet(data: $data) {
+ mutation updatePet($data: PetUpdateInput!, $id: PetWhereUniqueInput!) {
+    updatePet(data: $data, where: $id ) {
         name
         species
         age
@@ -12,21 +12,3 @@ export default gql`
       }
   }
 `;
-
-// import gql from 'graphql-tag';
-
-// export default gql`
-//   mutation editPost($input: UpdatePostInput) {
-//     createDraft(input: $input) {
-//       author {
-//         id
-//         name
-//         posts {
-//             id
-//             title
-//             content
-//         }
-//       }
-//     }
-//   }
-// `;

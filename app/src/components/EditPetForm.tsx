@@ -1,7 +1,9 @@
 import React, { FC, useState } from 'react'
-import { useMutation, useQuery } from '@apollo/react-hooks'
-import { Form, Col, Row, Button, Image, ListGroup } from 'react-bootstrap'
-import { GET_PET } from '../../src/queries';
+import { RouteComponentProps } from 'react-router-dom'
+import { useMutation } from '@apollo/react-hooks'
+import { Form, Button, Image, ListGroup } from 'react-bootstrap'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { UPDATE_PET } from '../../src/mutations';
 
 type PetUpdateInput = {
@@ -13,11 +15,45 @@ type PetUpdateInput = {
   adoptionFee: Number
 }
 
-const EditPetForm: FC = () => {
+toast.configure()
+
+const EditPetForm: FC<RouteComponentProps> = (props) => {
+
+const pet: any = props.location.state;
+
+const [validated, setValidated] = useState(false);
+const handleSubmit = (event: any) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+  };
+
+  const [petToUpdate, updatePet] = useState({
+    name: pet.name,
+    species: pet.species,
+    age: pet.age,
+    imageUrl: pet.imageUrl,
+    description: pet.description,
+    adoptionFee: pet.adoptionFee
+  })
+
+  const [updatePetMutation] = useMutation(UPDATE_PET, {
+    onCompleted: () => toast('Success! Pet updated!', {type: 'success'})
+  })
+
+  const { name, species, age, imageUrl, description, adoptionFee } = petToUpdate
+
+  const handleUpdatePet = (attributeToUpdate: any): void => {
+    updatePet({ ...petToUpdate, ...attributeToUpdate });
+  };
+
     return (
       <div className="edit-pet-form-container">
       <div className="edit-pet-guidelines-container">
-      <Image src="/Bird.png" className="edit-pet-form-image"></Image>      
+      <Image src={imageUrl} className="edit-pet-form-image"></Image>      
         <h1 className="edit-pet-guidelines-header">Edit A Pet Guidelines</h1>
           <div>
           <ListGroup variant="flush">
@@ -29,17 +65,18 @@ const EditPetForm: FC = () => {
           </ListGroup>  
           </div>
       </div>
-      <Form className="edit-pet-form-fields">
+      <Form className="edit-pet-form-fields" noValidate validated={validated} onSubmit={handleSubmit}>
       <h1 className="edit-pet-form-header">
           Edit A Pet
       </h1>
       <Form.Group controlId="exampleForm.ControlInput1">
         <Form.Label>Pet Name</Form.Label>
-        <Form.Control type="fname" placeholder="Pet Name" />
+        <Form.Control required type="fname" value={name} onChange={ (event: any) => handleUpdatePet({name: event.target.value })}/>
+        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label>Species</Form.Label>
-        <Form.Control as="select">
+        <Form.Control required as="select" value={species} onChange={ (event: any) => handleUpdatePet({species: event.target.value })}>
           <option>Select</option>
           <option>Dog</option>
           <option>Cat</option>
@@ -49,8 +86,8 @@ const EditPetForm: FC = () => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect2">
         <Form.Label>Age</Form.Label>
-        <Form.Control as="select">
-          <option>In years</option>
+        <Form.Control required as="select" value={age} onChange={ (event: any) => handleUpdatePet({age: +event.target.value })}>
+          <option disabled>In years</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -75,38 +112,49 @@ const EditPetForm: FC = () => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Form.Label>Image URL</Form.Label>
-        <Form.Control type="text" placeholder="Image URL" />
+        <Form.Control required type="text" value={imageUrl} onChange={ (event: any) => handleUpdatePet({imageUrl: event.target.value })}/>
+        <Form.Control.Feedback type="invalid">
+              Please provide an image url.
+            </Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea2">
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" rows="3" />
+        <Form.Control required as="textarea" rows="3" value={description} onChange={ (event: any) => handleUpdatePet({description: event.target.value })}/>
+        <Form.Control.Feedback type="invalid">
+              Please provide a description.
+            </Form.Control.Feedback>
       </Form.Group>
-      <div className="edit-pet-radios-container">
-      <Form.Group as={Row}>
-        <Form.Label column lg={6}>
-          Available for adoption?
-        </Form.Label>
-        <Col lg={10} >
-          <Form.Check
-            type="radio"
-            label="Yes"
-            name="formHorizontalRadios"
-            id="formHorizontalRadios1"
-          />
-          <Form.Check
-            type="radio"
-            label="No"
-            name="formHorizontalRadios"
-            id="formHorizontalRadios1"
-          />
-        </Col>
-      </Form.Group>
-      </div>
-      <Button variant="outline-info">Save Changes</Button>
+      <Form.Group controlId="exampleForm.ControlTextarea3">
+          <Form.Label>Adoption Fee:</Form.Label>
+          <Form.Control as="select" value={adoptionFee} onChange={ (event: any) => handleUpdatePet({adoptionFee: event.target.value })}>
+          <option>$50</option>
+          </Form.Control>
+        </Form.Group>
+      <Button
+        variant="outline-info"
+        type="submit"
+        onClick={(event:any): void => {
+          event.preventDefault();
+          if(petToUpdate){
+            const data: PetUpdateInput = {
+              name: petToUpdate.name,
+              species: petToUpdate.species,
+              age: petToUpdate.age,
+              imageUrl: petToUpdate.imageUrl,
+              description: petToUpdate.description,
+              adoptionFee: petToUpdate.adoptionFee
+            };
+            updatePetMutation({ variables: { data: data, id: props.match.params }});
+          } else {
+            toast('Oops! Looks like there was an error! Pet was not updated.', {
+              type: 'error'
+            })
+          }
+        }}
+        >Save Changes</Button>
     </Form>
   </div>
     );
   }
   
   export default EditPetForm;
-

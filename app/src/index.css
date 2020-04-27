@@ -1,27 +1,4 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
-/* #root { 
-  background: url("/gradient2.jpeg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
-
 /* Navbar */
-
 .navbar-container {
   display: flex;
   flex-direction: row;
@@ -132,9 +109,10 @@ code {
 }
 
  /* All Pets */
-
  .all-pets-page {
    background-image: url("/gradient.jpeg");
+   background-repeat: no-repeat;
+   background-size: cover;
  }
  .all-pets-container {
   display: flex;

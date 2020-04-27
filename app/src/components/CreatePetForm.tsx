@@ -1,4 +1,6 @@
 import React, { FC, useState } from 'react'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_PET } from '../mutations'
@@ -12,6 +14,8 @@ type PetCreateInput = {
   description: String
   adoptionFee: Number
 }
+
+toast.configure()
 
 const CreatePetForm: FC = () => {
 
@@ -31,14 +35,13 @@ const CreatePetForm: FC = () => {
   }
   
   const [createPetMutation] = useMutation(CREATE_PET, {
-    onCompleted: () => console.log('Pet added!'),
+    onCompleted: () => toast('Success! Pet created!', {type: 'success'}),
   })
-
 
     return (
       <div className="create-pet-form-container">
         <div className="create-pet-guidelines-container">
-        <Image src="/FrontFacingBunny.png" className="create-pet-form-image"></Image>      
+        <Image src={"/FrontFacingBunny.png"} className="create-pet-form-image"></Image>      
           <h1 className="create-pet-guidelines-header">New Pet Guidelines</h1>
             <div>
             <ListGroup variant="flush">
@@ -71,8 +74,8 @@ const CreatePetForm: FC = () => {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect2">
           <Form.Label>Age</Form.Label>
-          <Form.Control as="select" onChange={ (event: any) => handleCreatePet({ age: +event.target.value })}> 
-            <option>In years</option>
+          <Form.Control as="select" value={"In years"} onChange={ (event: any) => handleCreatePet({ age: +event.target.value })}> 
+            <option disabled>In years</option>
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -102,12 +105,10 @@ const CreatePetForm: FC = () => {
           <Form.Label>Description</Form.Label>
           <Form.Control as="textarea" rows="3" value={description} onChange={ (event: any) => handleCreatePet({ description: event.target.value })}/>
         </Form.Group>
-
-
         <Form.Group controlId="exampleForm.ControlTextarea3">
-          <Form.Label>Adoption Fee: $</Form.Label>
+          <Form.Label>Adoption Fee:</Form.Label>
           <Form.Control as="select" onChange={ (event: any) => handleCreatePet({ adoptionFee: event.target.value })}>
-          <option>50</option>
+          <option>$50</option>
           </Form.Control>
         </Form.Group>
         <Button
@@ -115,7 +116,7 @@ const CreatePetForm: FC = () => {
           type="submit"
           onClick={(event:any): void => {
             event.preventDefault();
-            if(name && species && age && description){
+            if(Object.keys(pet).length){
               const data: PetCreateInput = {
                 name,
                 species,
@@ -126,7 +127,9 @@ const CreatePetForm: FC = () => {
               };
               createPetMutation({ variables: { data: data }});
             } else {
-              console.log('Oops! Looks like there was an error. Pet was not created.')
+              toast('Oops! Looks like there was an error! Pet was not created.', {
+                type: 'error'
+              })
             }
           }}
         >Add New Pet

@@ -49,7 +49,7 @@ const birdImages = {
     branch: "https://c1.wallpaperflare.com/preview/210/104/54/parrot-on-white-background-looking-pet-bird-zoo.jpg",
     // yellow: "https://images.assetsdelivery.com/compings_v2/cynoclub/cynoclub1511/cynoclub151100217.jpg",
     yellow2: "https://images.assetsdelivery.com/compings_v2/cynoclub/cynoclub1708/cynoclub170800086.jpg",
-    blue: "https://i.pinimg.com/originals/65/ac/1c/65ac1cf3ed76a9830f678816532515b2.jpg",
+    // blue: "https://i.pinimg.com/originals/65/ac/1c/65ac1cf3ed76a9830f678816532515b2.jpg",
     green2: "https://cdn.hipwallpaper.com/i/91/21/K4Otyc.jpg",
     // parrot: "https://www.petyak.com/wp-content/uploads/2015/06/bigstock-Curious-Jenday-Conure-parrot-o-31163150-810x542.jpg",
     gray: "https://s1.1zoom.me/big0/394/Birds_Parrots_White_background_536414_1128x1024.jpg",
@@ -86,7 +86,7 @@ const bunnyImages = {
     baby: "https://media.istockphoto.com/photos/brown-furry-haired-rabbit-against-a-white-background-picture-id178500897?k=6&m=178500897&s=612x612&w=0&h=6GYIyB-NSoGYYdbHrEF51ncGujcX6r_EO64lS98mp28=",
     baby2: "https://media.istockphoto.com/videos/easter-bunny-on-white-background-video-id667679532?s=640x640",
     baby3: "https://i.ebayimg.com/images/g/iRMAAOSwYeRaIXyi/s-l400.jpg",
-    baby4: "https://ak1.picdn.net/shutterstock/videos/31412221/thumb/12.jpg",
+    // baby4: "https://ak1.picdn.net/shutterstock/videos/31412221/thumb/12.jpg",
     // floppy: "https://www.petguide.com/wp-content/uploads/2016/05/french-lop.jpg",
 }
 
