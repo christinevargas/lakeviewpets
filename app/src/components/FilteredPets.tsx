@@ -18,18 +18,13 @@ interface Pet {
 
 const FilteredPets: FC<RouteComponentProps> = (props) => {
 
-  console.log(props)
-
 const species: any = props.location.state;
-
-console.log(species)
 
 const { data, loading, error } = useQuery(GET_DOGS,
   {
     variables: { species: species }
     }
   );
-  console.log(data)
 
   //TODO:
   // Create reusable React component for the 3 lines below
