@@ -14,6 +14,7 @@ import EditPetForm from './components/EditPetForm'
 import AdoptionForm from './components/AdoptionForm'
 import Cart from './components/Cart'
 import AboutUs from './components/AboutUs'
+import AllDogs from './components/AllDogs'
 
 
 const App: FC = () => { //default props/values should go in as params 
@@ -28,9 +29,14 @@ const App: FC = () => { //default props/values should go in as params
           <Route exact path="/edit-pet-form/:id" component={EditPetForm} />
           <Route exact path="/about-us-faq" component={AboutUs} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/dogs" component={AllDogs}/>
+          <Route exact path="/cats"/>
+          <Route exact path="/birds"/>
+          <Route exact path="/bunnies"/>
+      
           
     </Router>
   );
-}
+} 
 
 export default App;

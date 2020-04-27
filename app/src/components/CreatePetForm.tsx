@@ -5,7 +5,6 @@ import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_PET } from '../mutations'
 
-
 type PetCreateInput = {
   name: String
   species: String
@@ -114,7 +113,7 @@ const CreatePetForm: FC = () => {
         <Button
           variant="outline-info"
           type="submit"
-          onClick={(event:any): void => {
+          onClick={async (event:any) => {
             event.preventDefault();
             if(Object.keys(pet).length){
               const data: PetCreateInput = {

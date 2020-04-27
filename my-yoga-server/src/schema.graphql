@@ -4,7 +4,6 @@
 type Query {
   pets: Pet
   pet($id: ID!): Pet
-
 }
 
 
@@ -46,4 +45,8 @@ type PetUpdateInput {
   imageUrl: String
   description: String
   adoptionFee: Int
+}
+
+input PetWhereInput {
+  species: String
 }

@@ -2,19 +2,12 @@ import React, { FC } from "react"
 import { Link } from "react-router-dom"
 import { Figure, Jumbotron, Button, Container, Carousel } from 'react-bootstrap'
 
-
-
-// export interface AppProps {
-//     readonly prop1: string;
-//   }
-
 const categories = [
-  {id: 1, species: "Dogs", imgUrl: '/DogLogo.png' },
-  {id: 2, species: "Cats", imgUrl: '/CatLogo.png'},
-  {id: 3, species: "Birds", imgUrl: '/BirdLogo.png'},
-  {id: 4, species: "Bunnies", imgUrl: '/BunnyLogo.png' },
+  {id: 1, species: "Dog", imgUrl: '/DogLogo.png' },
+  {id: 2, species: "Cat", imgUrl: '/CatLogo.png'},
+  {id: 3, species: "Bird", imgUrl: '/BirdLogo.png'},
+  {id: 4, species: "Bunny", imgUrl: '/BunnyLogo.png' },
 ]
-  
   
   const Homepage: FC = () => {
     return (
@@ -42,7 +35,16 @@ const categories = [
           className="category-img"
           />
         <Figure.Caption className="category-captions">
-          <Button variant="outline-info" className="homepage-buttons">{category.species}</Button></Figure.Caption>
+          <Link 
+            to={{
+              pathname: `/dogs`,
+              state: `${category.species}`
+         }}
+          
+          >
+            <Button variant="outline-info" className="homepage-buttons">{category.species}</Button>
+          </Link>
+          </Figure.Caption>
       </Figure>
       ))}
       </div>

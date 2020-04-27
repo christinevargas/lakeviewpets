@@ -275,7 +275,6 @@
 }
 
 /* Create A Pet Form */
-
 .create-pet-form-container {
   display: flex;
   flex-direction: row;
@@ -326,7 +325,6 @@
 }
 
 /* Edit A Pet Form */
-
 .edit-pet-form-container {
   display: flex;
   flex-direction: row;
@@ -379,7 +377,6 @@
 }
 
 /* About Us/FAQ */
-
 .about-us-page-container {
   display: flex;
   flex-direction: column;
@@ -424,4 +421,9 @@
   font-family: "Amaranth";
   font-size: 25px;
   color: #17a2b8;
+}
+
+/* Cart */
+.crate-title{
+  padding-top: 200px
 }

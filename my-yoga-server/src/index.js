@@ -1,17 +1,27 @@
 const { GraphQLServer } = require('graphql-yoga')
-const { importSchema } = require('graphql-import')
 const { Prisma } = require('prisma-binding')
 
 
-const yupValidation = {
-  async Mutation(resolve, root, args, context, info) {
-    console.log('yupValidation.Mutation -> before', args);
-    const result = await resolve(root, args, context, info);
-    console.log('yupValidation.Mutation -> after', result);
-    return result;
-  }
-}
-
+// const yupValidation = {
+//   async Mutation(resolve, root, args, context, info) {
+//     const mutationField = info.schema.getMutationType().getFields()[info.fieldName];
+//     const mutationValidationSchema = mutationField.validationSchema;
+//     if (mutationValidationSchema) {
+//       try {
+//         const values = await mutationValidationSchema.validate(args);
+//       } catch (error) {
+//         if (error instanceof yup.ValidationError) {
+//           return {
+//             error: error.message,
+//           };
+//         } else {
+//           throw error;
+//         }
+//       }
+//     }
+//     return resolve(root, args, context, info);
+//   }
+// }
 
 const resolvers = {
     Query: {
@@ -27,6 +37,43 @@ const resolvers = {
         )
       }
     },
+
+  //   Mutation: {
+  //     createPet: {
+  //       validationSchema: yup.object().shape({
+  //         name: yup
+  //           .string().required(),
+  //         species: yup
+  //           .string().required(),
+  //         age: yup
+  //           .number().required(),
+  //         imageUrl: yup
+  //           .string().required(),
+  //         description: yup
+  //           .string().required(),
+  //         adoptionFee: yup
+  //           .number().required()
+  //       }),
+  //       resolve: async (_, args, context, info) => {
+  //         const { name, species, age, imageUrl, description, adoptionFee } = args;
+          
+  //         return context.prisma.mutation.createPet({
+  //               data: {
+  //                 id,
+  //                 name,
+  //                 species,
+  //                 age,
+  //                 imageUrl,
+  //                 description,
+  //                 adoptionFee
+  //               },
+  //               info,
+  //           });
+  //       },
+  //     }
+  //   },
+  // }
+
     Mutation: {
       createPet: (_, args, context, info) => {
         const { name, species, age, imageUrl, description, adoptionFee } = args;
