@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
 import { PlusSquare } from "react-feather" 
 import { useQuery } from "@apollo/react-hooks";
-import { GET_DOGS } from '../queries'
+import { GET_FILTERED_PETS } from '../queries'
 
 interface Pet {
     id: string
@@ -20,7 +20,7 @@ const FilteredPets: FC<RouteComponentProps> = (props) => {
 
 const species: any = props.location.state;
 
-const { data, loading, error } = useQuery(GET_DOGS,
+const { data, loading, error } = useQuery(GET_FILTERED_PETS,
   {
     variables: { species: species }
     }
