@@ -37,10 +37,9 @@ const categories = [
         <Figure.Caption className="category-captions">
           <Link 
             to={{
-              pathname: `/dogs`,
+              pathname: `/${category.species}`,
               state: `${category.species}`
          }}
-          
           >
             <Button variant="outline-info" className="homepage-buttons">{category.species}</Button>
           </Link>

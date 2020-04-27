@@ -16,7 +16,7 @@ interface Pet {
     adoptionFee: number
   }
 
-const AllDogs: FC<RouteComponentProps> = (props) => {
+const FilteredPets: FC<RouteComponentProps> = (props) => {
 
   console.log(props)
 
@@ -70,4 +70,4 @@ const { data, loading, error } = useQuery(GET_DOGS,
       );
   }
   
-  export default AllDogs;
+  export default FilteredPets;
