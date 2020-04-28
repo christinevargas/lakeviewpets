@@ -2,7 +2,6 @@ import React, { FC } from "react"
 import { RouteComponentProps } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
-import { PlusSquare } from "react-feather" 
 import { useQuery } from "@apollo/react-hooks";
 import { GET_FILTERED_PETS } from '../queries'
 
@@ -35,9 +34,6 @@ const { data, loading, error } = useQuery(GET_FILTERED_PETS,
         <div className="all-pets-page">
           <header className="all-pets-header">
             {`All ${species}s Available for Adoption`}
-            {/* <Link to="/create-pet-form">
-            <PlusSquare className="plus-square-icon" size={40} color="black"></PlusSquare>
-          </Link> */}
           </header>
           <div className="all-pets-container">
             {data.pets.map((pet: Pet) => (
@@ -50,8 +46,7 @@ const { data, loading, error } = useQuery(GET_FILTERED_PETS,
                   <Card.Text>Age: {pet.age}</Card.Text>
                   <Card.Text>{pet.description}</Card.Text>
                   <Card.Text>${pet.adoptionFee}</Card.Text>
-  
-                  <Link to={`/dogs/${pet.id}`}>
+                  <Link to={`/pets/${pet.id}`}>
               <Button variant="outline-info">See More</Button>
               </Link>
                 </Card.Body>
