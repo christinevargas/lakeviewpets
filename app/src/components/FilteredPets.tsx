@@ -19,9 +19,8 @@ interface Pet {
 const FilteredPets: FC<RouteComponentProps> = (props) => {
 
 const species: any = props.location.state;
-
 const { data, loading, error } = useQuery(GET_FILTERED_PETS,
-  {
+    {
     variables: { species: species }
     }
   );
@@ -33,17 +32,16 @@ const { data, loading, error } = useQuery(GET_FILTERED_PETS,
   if (!data) return <p>Not found</p>;
       
   return (
-        <div className="all-dogs-page">
-          <header className="all-dogs-header">
-            All dogs Available for Adoption
-            <Link to="/create-pet-form">
+        <div className="all-pets-page">
+          <header className="all-pets-header">
+            {`All ${species}s Available for Adoption`}
+            {/* <Link to="/create-pet-form">
             <PlusSquare className="plus-square-icon" size={40} color="black"></PlusSquare>
-          </Link>
+          </Link> */}
           </header>
-         
-          <div className="all-dogs-container">
+          <div className="all-pets-container">
             {data.pets.map((pet: Pet) => (
-            <div key={pet.id} className="all-dogs-cards">
+            <div key={pet.id} className="all-pets-cards">
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={pet.imageUrl} className="pet-card-img"/>
                 <Card.Body>
