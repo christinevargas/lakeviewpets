@@ -1,9 +1,11 @@
 import React, { FC } from 'react'
+import { Image, Button } from 'react-bootstrap'
 
 const Cart: FC = () => {
     return (
-      <div>
-        <h1 className="crate-title">My Crate</h1>
+      <div className="outermost-div">
+
+      CART
       </div>
     );
   }

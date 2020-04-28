@@ -5,16 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 //Components
-import Navbar from "./components/Navbar"
-import Homepage from "./components/Homepage"
-import AllPets from './components/AllPets'
-import SinglePet from './components/SinglePet'
-import CreatePetForm from './components/CreatePetForm'
-import EditPetForm from './components/EditPetForm'
-import AdoptionForm from './components/AdoptionForm'
-import Cart from './components/Cart'
-import AboutUs from './components/AboutUs'
-import FilteredPets from './components/FilteredPets'
+import { AboutUs, AdoptionForm, AllPets, Cart, CreatePetForm, EditPetForm, FilteredPets, Homepage, Navbar, SinglePet } from './components'
 
 
 const App: FC = () => {

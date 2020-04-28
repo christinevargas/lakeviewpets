@@ -25,7 +25,6 @@ const categories = [
         </p>
         </Container>
       </Jumbotron>
-      
       <div className="category-figures">
       {categories.map(category=> (
         <Figure key={category.id}>
@@ -41,7 +40,7 @@ const categories = [
               state: `${category.species}`
          }}
           >
-            <Button variant="outline-info" className="homepage-buttons">{category.species}</Button>
+            <Button variant="outline-info" className="homepage-buttons">{`${category.species}s`}</Button>
           </Link>
           </Figure.Caption>
       </Figure>
@@ -79,7 +78,6 @@ const categories = [
             src="https://www.thesprucepets.com/thmb/K6l0YKtcUnFXd8YhCP40lpegyCw=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/ScreenShot2019-10-21at9.04.12AM-94e28f1cb3dd41f98784d805d2b59842.png"
             alt="Third slide"
         />
-
         <Carousel.Caption>
           <h3 className="carousel-font">Hello, my name is Birdie Sanders.</h3>
           <p className="carousel-font">I'm yellow and pretty mellow. Take me home today!</p>
@@ -87,10 +85,7 @@ const categories = [
         </Carousel.Item>
       </Carousel>
       <h2 className="guarantee-header">When you adopt a pet from Lakeview Pets, we guarantee...</h2>
-
         <div className="homepage-icons-container">
-
-
         <Figure>
           <Figure.Image
             src="/DogHeartIcon.png" className="homepage-icons"
@@ -99,7 +94,6 @@ const categories = [
             Your new pet = your new BFF, full of love and joy.
           </Figure.Caption>
         </Figure>
-        
         <Figure>
           <Figure.Image
             src="/HealthIcon.png" className="homepage-icons"
@@ -108,7 +102,6 @@ const categories = [
             Your new BFF is 110% healthy and up to date with all vaccinations.
           </Figure.Caption>
         </Figure>
-
         <Figure>
           <Figure.Image
             src="/DogAndHumanIcon.png" className="homepage-icons"
@@ -117,7 +110,6 @@ const categories = [
             Your BFF will bring you companionship and a good time.
           </Figure.Caption>
           </Figure>
-
           <Figure>
           <Figure.Image
             src="/Paws.png" className="homepage-icons"
@@ -125,7 +117,6 @@ const categories = [
           <Figure.Caption className="icon-captions">We will be along for the journey and provide you the support you both need.
           </Figure.Caption>
           </Figure>
-
           <Figure>
           <Figure.Image
             src="/HeartIcon.png" className="homepage-icons"
