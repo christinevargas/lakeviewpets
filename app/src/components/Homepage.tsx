@@ -37,7 +37,7 @@ const categories = [
         <Figure.Caption className="category-captions">
           <Link 
             to={{
-              pathname: `/${category.species}`,
+              pathname: `/filtered/${category.species}s`,
               state: `${category.species}`
          }}
           >

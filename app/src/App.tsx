@@ -17,7 +17,7 @@ import AboutUs from './components/AboutUs'
 import FilteredPets from './components/FilteredPets'
 
 
-const App: FC = () => { //default props/values should go in as params 
+const App: FC = () => {
   return (
     <Router>
       <Navbar/>
@@ -29,7 +29,7 @@ const App: FC = () => { //default props/values should go in as params
           <Route exact path="/edit-pet-form/:id" component={EditPetForm} />
           <Route exact path="/about-us-faq" component={AboutUs} />
           <Route exact path="/cart" component={Cart} />
-          <Route exact path="/:species" component={FilteredPets}/>
+          <Route exact path="/filtered/:species" component={FilteredPets}/>
     </Router>
   );
 } 
