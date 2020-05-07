@@ -1,17 +1,13 @@
 projects:
-    app:
-      schemaPath: src/schema.graphql
-      extensions:
-        endpoints:
-          default: http://localhost:4000
-    prisma:
-      # database: "postgresql://postgres:postgres@localhost:5432/postgres"
-      schemaPath: datamodel.1585770106306.prisma
-      extensions:
-        prisma: prisma.yml
-        # codegen:
-        #   - generator: prisma-binding
-        #     language: typescript
-        #     output:
-        #       binding: generated/prisma.graphql
-
+  app:
+    schemaPath: src/schema.graphql
+    extensions:
+      endpoints:
+        default: 'http://localhost:4000'
+  prisma:
+    schemaPath: datamodel.1585770106306.prisma
+    extensions:
+      prisma: prisma.yml
+extensions:
+  amplify:
+    version: 3

@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 //Components
-import { AboutUs, AdoptionForm, AllPets, Cart, CreatePetForm, EditPetForm, FilteredPets, Homepage, Navbar, SinglePet } from './components'
+import { AboutUs, AdoptionForm, AllPets, Cart, CreatePetForm, EditPetForm, FilteredPets, Homepage, Navbar, SinglePet, SignUp } from './components'
 
 
 const App: FC = () => {
@@ -21,8 +20,11 @@ const App: FC = () => {
           <Route exact path="/about-us-faq" component={AboutUs} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/filtered/:species" component={FilteredPets}/>
+          <Route exact path="/signup" component={SignUp}/>
     </Router>
   );
 } 
 
 export default App;
+
+

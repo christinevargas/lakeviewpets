@@ -37,8 +37,7 @@ const resolvers = {
         )
       }
     },
-
-  //   Mutation: {
+    // Mutation: {
   //     createPet: {
   //       validationSchema: yup.object().shape({
   //         name: yup
@@ -73,7 +72,6 @@ const resolvers = {
   //     }
   //   },
   // }
-
     Mutation: {
       createPet: (_, args, context, info) => {
         const { name, species, age, imageUrl, description, adoptionFee } = args;

@@ -1,0 +1,22 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-lakeviewpets-dev-144338-authRole",
+            "UnauthRoleArn": "arn:aws:iam::668013209301:role/amplify-lakeviewpets-dev-144338-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::668013209301:role/amplify-lakeviewpets-dev-144338-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-lakeviewpets-dev-144338-deployment",
+            "UnauthRoleName": "amplify-lakeviewpets-dev-144338-unauthRole",
+            "StackName": "amplify-lakeviewpets-dev-144338",
+            "StackId": "arn:aws:cloudformation:us-east-2:668013209301:stack/amplify-lakeviewpets-dev-144338/0e4e0560-8be4-11ea-bc4b-0a18862e0c0c",
+            "AmplifyAppId": "dqixirtlkke1q"
+        },
+        "categories": {
+            "auth": {
+                "lakeviewpets13a6fca3": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"1045505606858-3616a2ckcke7em3gsr9864m6k02ddmmu.apps.googleusercontent.com\",\"client_secret\":\"ZaAefo_9Z4z70-X52I1WUkcx\"}]"
+                }
+            }
+        }
+    }
+}
