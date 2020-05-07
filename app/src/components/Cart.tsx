@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 
 const Cart: FC = () => {
     return (
-      <div>
-        
+      <div className="outermost-div">
+        CART
       </div>
     );
   }

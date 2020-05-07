@@ -34,6 +34,8 @@ interface Pet {
           <PlusSquare className="plus-square-icon" size={40} color="black"></PlusSquare>
         </Link>
         </header>
+
+        <div className="allPets-"></div>
        
         <div className="all-pets-container">
           {data.pets.map((pet: Pet) => (

@@ -135,7 +135,7 @@ const handleSubmit = (event: any) => {
         type="submit"
         onClick={(event:any): void => {
           event.preventDefault();
-          if(petToUpdate){
+          if(Object.keys(petToUpdate).length){
             const data: PetUpdateInput = {
               name: petToUpdate.name,
               species: petToUpdate.species,
