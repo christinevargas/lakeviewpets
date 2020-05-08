@@ -1,29 +1,31 @@
+import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
+import Amplify from 'aws-amplify';
 import React, { FC } from 'react';
 
+import awsConfig from '../aws-exports.js';
 
-import Amplify, { Auth } from 'aws-amplify';
-const awsconfig = require("../aws-exports.js")
-Amplify.configure(awsconfig);
+Amplify.configure(awsConfig);
 
 const SignUp: FC = () => {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src="./BunnyLogo.png" className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-}
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src="./BunnyLogo.png" className="App-logo" alt="logo"/>
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <AmplifySignOut/>
+    </div>
+  );
+};
 
-export default SignUp;
+export default withAuthenticator(SignUp);
