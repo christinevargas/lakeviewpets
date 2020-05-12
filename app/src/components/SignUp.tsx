@@ -5,9 +5,10 @@ import React, { FC } from 'react';
 
 
 //TODO:
-// The error below seems to be a TS thing. A workaround seems to be using "require" keyword instead of "import"
-import awsConfig from '../aws-exports.js';
+// The line below results in an error in the console. A workaround seems to be using "require" keyword instead of "import"
+// import awsConfig from '../aws-exports.js';
 
+const awsConfig = require("../aws-exports.js")
 Amplify.configure(awsConfig);
 
 const SignUp: FC = () => {
