@@ -4,14 +4,16 @@
 type Query {
   pets: Pet
   pet($id: ID!): Pet
+  users: User
+  user($id: ID!): User
 }
 
 
 type Mutation {
   createPet(data: PetCreateInput!): Pet
-  # createUser(data: UserCreateInput!): User!
+  createUser(data: UserCreateInput!): User!
   updatePet(data: PetUpdateInput!, where: PetWhereUniqueInput!): Pet
-  # updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   # deletePet(where: PetWhereUniqueInput!): Pet
   # deleteUser(where: UserWhereUniqueInput!): User
   # upsertPet(where: PetWhereUniqueInput!, create: PetCreateInput!, update: PetUpdateInput!): Pet!

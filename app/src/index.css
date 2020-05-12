@@ -18,6 +18,12 @@
   margin-left: 20px
 }
 
+.sign-in-icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+
 .all-pets-icon {
   height: 30px;
   width: 40px;

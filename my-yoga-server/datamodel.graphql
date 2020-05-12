@@ -12,7 +12,7 @@ type User {
   id: ID! @unique
   firstName: String
   lastName: String
-  email: Boolean
+  email: String
   password: String
   address: String
   address2: String
@@ -20,6 +20,7 @@ type User {
   state: String
   zipcode: Int
   rentOrOwn: String
+  over18: Boolean
   isAdmin: Boolean @default(value: "false")
 }
 
