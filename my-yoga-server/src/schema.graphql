@@ -27,7 +27,6 @@ type Mutation {
 
 # Input type for a new Pet
 type PetCreateInput {
-  # id: ID!
   name: String
   species: String
   age: Int
@@ -51,4 +50,39 @@ type PetUpdateInput {
 
 input PetWhereInput {
   species: String
+}
+
+# Input type for a new User
+type UserCreateInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  over18: Boolean
+  isAdmin: Boolean
+}
+
+input UserWhereUniqueInput {
+  id: String
+}
+
+type UserUpdateInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  over18: Boolean
+  isAdmin: Boolean
 }
