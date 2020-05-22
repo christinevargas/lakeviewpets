@@ -1,13 +1,47 @@
-import React, { FC } from 'react'
-import { Form, Col, Row, Button, Image, ListGroup } from 'react-bootstrap'
+import React, { FC, useState } from 'react'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Form, Button, Image, ListGroup } from 'react-bootstrap'
+import { useMutation } from '@apollo/react-hooks'
+import { CREATE_PET } from '../mutations'
+
+type PetCreateInput = {
+  name: String
+  species: String
+  age: Number
+  imageUrl: String
+  description: String
+  adoptionFee: Number
+}
+
+toast.configure()
 
 const CreatePetForm: FC = () => {
+
+  const [pet, createPet] = useState({
+    name: '',
+    species: '',
+    age: Number(''),
+    imageUrl: '',
+    description: '',
+    adoptionFee: 50
+  })
+
+  const { name, species, age, imageUrl, description, adoptionFee } = pet
+
+  const handleCreatePet = (attributeToUpdate: any) => {
+    createPet({...pet, ...attributeToUpdate})
+  }
+  
+  const [createPetMutation] = useMutation(CREATE_PET, {
+    onCompleted: () => toast('Success! Pet created!', {type: 'success'}),
+  })
+
     return (
       <div className="create-pet-form-container">
         <div className="create-pet-guidelines-container">
-        <Image src="/FrontFacingBunny.png" className="create-pet-form-image"></Image>      
+        <Image src={"/FrontFacingBunny.png"} className="create-pet-form-image"></Image>      
           <h1 className="create-pet-guidelines-header">New Pet Guidelines</h1>
-            {/* <p className="rules">In order to be adopted, all new pets must:</p> */}
             <div>
             <ListGroup variant="flush">
               <ListGroup.Item>1. One form must be submitted per each new pet.</ListGroup.Item>
@@ -23,12 +57,13 @@ const CreatePetForm: FC = () => {
             Add A New Pet
         </h1>
         <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label>Pet Name</Form.Label>
-          <Form.Control type="fname" placeholder="Pet Name" />
+          <Form.Label>Pet Name
+          </Form.Label>
+          <Form.Control type="fname" placeholder="Pet Name" value={name} onChange={ (event: any) => handleCreatePet({ name: event.target.value })}/>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>Species</Form.Label>
-          <Form.Control as="select">
+          <Form.Control as="select" value={species} onChange={ (event: any) => handleCreatePet({ species: event.target.value })}>
             <option>Select</option>
             <option>Dog</option>
             <option>Cat</option>
@@ -38,8 +73,9 @@ const CreatePetForm: FC = () => {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect2">
           <Form.Label>Age</Form.Label>
-          <Form.Control as="select">
-            <option>In years</option>
+          <Form.Control as="select" value={"In years"} onChange={ (event: any) => handleCreatePet({ age: +event.target.value })}> 
+            <option disabled>In years</option>
+            <option>0</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -58,44 +94,48 @@ const CreatePetForm: FC = () => {
             <option>16</option>
             <option>17</option>
             <option>18</option>
-            <option>19</option>
-            <option>20</option>
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Image URL</Form.Label>
-          <Form.Control type="text" placeholder="Image URL" />
+          <Form.Control type="text" placeholder="Image URL" value={imageUrl} onChange={ (event: any) => handleCreatePet({ imageUrl: event.target.value })}/>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea2">
           <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" rows="3" />
+          <Form.Control as="textarea" rows="3" value={description} onChange={ (event: any) => handleCreatePet({ description: event.target.value })}/>
         </Form.Group>
-        <div className="create-pet-radios-container">
-        <Form.Group as={Row}>
-          <Form.Label column lg={6}>
-            Available for adoption?
-          </Form.Label>
-          <Col lg={10} >
-            <Form.Check
-              type="radio"
-              label="Yes"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios1"
-            />
-            <Form.Check
-              type="radio"
-              label="No"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios1"
-            />
-          </Col>
+        <Form.Group controlId="exampleForm.ControlTextarea3">
+          <Form.Label>Adoption Fee:</Form.Label>
+          <Form.Control as="select" onChange={ (event: any) => handleCreatePet({ adoptionFee: event.target.value })}>
+          <option>$50</option>
+          </Form.Control>
         </Form.Group>
-        </div>
-        <Button variant="outline-info">Add New Pet</Button>
-      </Form>
-    </div>
-    );
+        <Button
+          variant="outline-info"
+          type="submit"
+          onClick={async (event:any) => {
+            event.preventDefault();
+            if(Object.keys(pet).length){
+              const data: PetCreateInput = {
+                name,
+                species,
+                age,
+                imageUrl,
+                description,
+                adoptionFee
+              };
+              createPetMutation({ variables: { data: data }});
+            } else {
+              toast('Oops! Looks like there was an error! Pet was not created.', {
+                type: 'error'
+              })
+            }
+          }}
+        >Add New Pet
+        </Button>
+        </Form>
+      </div>
+    )
   }
   
   export default CreatePetForm;
-  

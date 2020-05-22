@@ -1,0 +1,9 @@
+endpoint: http://localhost:4466/my-yoga-server/dev
+datamodel: datamodel.graphql
+
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/
+
+seed:
+    import: seed.graphql

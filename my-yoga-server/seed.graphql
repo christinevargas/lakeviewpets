@@ -1,0 +1,309 @@
+  mutation {
+  dog1: createPet(data: {
+    name: "Max"
+    species: "Dog"
+    age: 2
+    imageUrl: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg"
+    description: "Very, very good boy. 13/10"
+    adoptionFee: 50
+  }) {
+    id
+  }
+  dog2: createPet(data: {
+    name: "Benny",
+    species: "Dog",
+    age: 2,
+    imageUrl: "https://dogbreedsfaq.com/wp-content/uploads/Golden-retriever-lying-on-white-background.jpg",
+    description: "Loves to play fetch!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  dog3: createPet(data: {
+    name: "Emma",
+    species: "Dog",
+    age: 9,
+    imageUrl: "https://i.pinimg.com/originals/cf/33/86/cf3386f76e10086be40f6534e1cc4f5c.png",
+    description: "Enjoys the occasional short walk, but prefers to play tug-o-war!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+   dog4: createPet(data: {
+    name: "Spike",
+    species: "Dog",
+    age: 4,
+    imageUrl: "https://i.pinimg.com/originals/b3/d5/17/b3d517a36c01259cf1456e0cf405948a.jpg",
+    description: "Full of energy and love!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+   dog5: createPet(data: {
+    name: "Sir Rufus",
+    species: "Dog",
+    age: 7,
+    imageUrl: "https://ssl.c.photoshelter.com/img-get/I0000crwrmzO8tac/s/1200/I0000crwrmzO8tac.jpg",
+    description: "Large and in charge! Royally kind and playful.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+
+
+  cat1: createPet(data: {
+    name: "Chester",
+    species: "Cat",
+    age: 3,
+    imageUrl: "https://cf.ltkcdn.net/cats/images/std/89935-425x331-cat-slide-1.jpg",
+    description: "Always looking for a good time!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  cat2: createPet(data: {
+    name: "Gracie",
+    species: "Cat",
+    age: 4,
+    imageUrl: "https://wallpapercave.com/wp/ePMeSmp.jpg",
+    description: "Calm, sweet, and purrrty.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  cat3: createPet(data: {
+    name: "Marcus",
+    species: "Cat",
+    age: 2,
+    imageUrl: "https://p0.pikrepo.com/preview/703/736/brown-tabby-cat-with-white-background-thumbnail.jpg",
+    description: "Curious but cautious enough not to cause any trouble!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  cat4: createPet(data: {
+    name: "Newman",
+    species: "Cat",
+    age: 7,
+    imageUrl: "https://farm4.static.flickr.com/3546/3661921553_445cc53973_o.jpg",
+    description: "Prefers to be left alone most of the day.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+
+  cat5: createPet(data: {
+    name: "Susie",
+    species: "Cat",
+    age: 5,
+    imageUrl: "https://static9.depositphotos.com/1594920/1090/i/450/depositphotos_10907008-stock-photo-siberian-cat-sitting-in-front.jpg",
+    description: "Fluffy, sassy, and loves a good mouse toy.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+
+   bird1: createPet(data: {
+    name: "Betty",
+    species: "Bird",
+    age: 1,
+    imageUrl: "https://photosfine.files.wordpress.com/2012/04/green-bird-white-background.jpg",
+    description: "Very pretty and pretty quiet!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+   bird2: createPet(data: {
+    name: "Polly",
+    species: "Bird",
+    age: 3,
+    imageUrl: "https://www.petyak.com/wp-content/uploads/2015/06/bigstock-Curious-Jenday-Conure-parrot-o-31163150-810x542.jpg",
+    description: "Loves learning new words and saltine crackers.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  bird3: createPet(data: {
+    name: "Sunny",
+    species: "Bird",
+    age: 1,
+    imageUrl: "https://images.assetsdelivery.com/compings_v2/cynoclub/cynoclub1511/cynoclub151100217.jpg",
+    description: "Can brighten your day with her songs.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  bird4: createPet(data: {
+    name: "Margaret",
+    species: "Bird",
+    age: 3,
+    imageUrl: "https://ak7.picdn.net/shutterstock/videos/1046710087/thumb/1.jpg?ip=x480",
+    description: "Colorful feathers and a coloful personality.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  bird5: createPet(data: {
+    name: "Disco",
+    species: "Bird",
+    age: 2,
+    imageUrl: "https://i.pinimg.com/originals/65/ac/1c/65ac1cf3ed76a9830f678816532515b2.jpg",
+    description: "Loves to 'dance' to a good song!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+  
+  bunny1: createPet(data: {
+    name: "Hopper",
+    species: "Bunny",
+    age: 2,
+    imageUrl: "https://www.petguide.com/wp-content/uploads/2016/05/french-lop.jpg",
+    description: "Enjoys human interaction like ear rubs and pets!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+ bunny2: createPet(data: {
+    name: "Bella",
+    species: "Bunny",
+    age: 4,
+    imageUrl: "https://cache.desktopnexus.com/thumbseg/2099/2099711-bigthumbnail.jpg",
+    description: "Inquisitive, smart, and a fast hopper!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+ bunny3: createPet(data: {
+    name: "Brunold",
+    species: "Bunny",
+    age: 2,
+    imageUrl: "https://image.freepik.com/free-photo/cute-rabbit-white-background_1232-462.jpg",
+    description: "Young bunny with an old soul <3.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+ bunny4: createPet(data: {
+    name: "Talula",
+    species: "Bunny",
+    age: 5,
+    imageUrl: "https://image.freepik.com/free-photo/brown-short-hair-adorable-baby-rabbit-white-background_33741-86.jpg",
+    description: "Needs a little more TLC than your avergae bunny.",
+    adoptionFee: 50
+  }) {
+    id
+  }
+   bunny5: createPet(data: {
+    name: "Maisie",
+    species: "Bunny",
+    age: 3,
+    imageUrl: "https://image.freepik.com/free-photo/adorable-baby-rabbit-white-background_33741-100.jpg",
+    description: "Shy at first, but will befriend you for food!",
+    adoptionFee: 50
+  }) {
+    id
+  }
+
+  admin: createUser(data: {
+    firstName: "Christine"
+    lastName: "Vargas"
+    email: "christine@christine.com"
+    password: "christine"
+    address: "123 Main Street"
+    address2: "Apt. 1"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Own"
+    over18: true
+    isAdmin: true
+  }) {
+    id
+  },
+
+  
+   user1: createUser(data: {
+    firstName: "Jane"
+    lastName: "Doe"
+    email: "user1@user1.com"
+    password: "user1"
+    address: "456 Main Street"
+    address2: "Apt. 2"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user2: createUser(data: {
+    firstName: "John"
+    lastName: "Doe"
+    email: "user2@user2.com"
+    password: "user2"
+    address: "456 Main Street"
+    address2: "Apt. 2"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user3: createUser(data: {
+    firstName: "Kevin"
+    lastName: "Sanchez"
+    email: "kevin@kevin.com"
+    password: "kevin"
+    address: "123 Main Street"
+    address2: "Apt. A"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Own"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user4: createUser(data: {
+    firstName: "Benny"
+    lastName: "Martinez"
+    email: "benny@benny.com"
+    password: "benny"
+    address: "789 Main Street"
+    address2: "Apt. F"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user5: createUser(data: {
+    firstName: "Emma"
+    lastName: "Martinez"
+    email: "emma@emma.com"
+    password: "emma"
+    address: "789 Main Street"
+    address2: "Apt. B"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+  
+}
+ 
+

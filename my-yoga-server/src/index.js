@@ -1,77 +1,171 @@
 const { GraphQLServer } = require('graphql-yoga')
-const { importSchema } = require('graphql-import')
 const { Prisma } = require('prisma-binding')
 
 
+// const yupValidation = {
+//   async Mutation(resolve, root, args, context, info) {
+//     const mutationField = info.schema.getMutationType().getFields()[info.fieldName];
+//     const mutationValidationSchema = mutationField.validationSchema;
+//     if (mutationValidationSchema) {
+//       try {
+//         const values = await mutationValidationSchema.validate(args);
+//       } catch (error) {
+//         if (error instanceof yup.ValidationError) {
+//           return {
+//             error: error.message,
+//           };
+//         } else {
+//           throw error;
+//         }
+//       }
+//     }
+//     return resolve(root, args, context, info);
+//   }
+// }
 
 const resolvers = {
     Query: {
+      pets(_, args, context, info){
+        return context.prisma.query.pets()
+        info
+      },
       pet(_, args, context, info){
         return context.prisma.query.pet(
           {
-            where: {}
+            where: { id: args.id }
           }
         )
+      },
+      users(_, args, context, info){
+        return context.prisma.query.users()
         info
       },
-      // customer: (_, args, context, info) => {
-      //   return context.prisma.query.customer,
-      //   info
-      // },
-    },
-    Mutation: {
-      createPet(_, {id, name}, context){
-        return context.prisma.mutation.createPet(
+      user(_, args, context, info){
+        return context.prisma.query.user(
           {
-              id, name
-              // species: args.species,
-              // imgUrl: args.imgUrl,
-              // description: args.description,
-              // available: args.available,
-              // price: args.price
+            where: { id: args.id }
+          }
+        )
+      }
+    },
+  
+    // Mutation: {
+  //     createPet: {
+  //       validationSchema: yup.object().shape({
+  //         name: yup
+  //           .string().required(),
+  //         species: yup
+  //           .string().required(),
+  //         age: yup
+  //           .number().required(),
+  //         imageUrl: yup
+  //           .string().required(),
+  //         description: yup
+  //           .string().required(),
+  //         adoptionFee: yup
+  //           .number().required()
+  //       }),
+  //       resolve: async (_, args, context, info) => {
+  //         const { name, species, age, imageUrl, description, adoptionFee } = args;
+          
+  //         return context.prisma.mutation.createPet({
+  //               data: {
+  //                 id,
+  //                 name,
+  //                 species,
+  //                 age,
+  //                 imageUrl,
+  //                 description,
+  //                 adoptionFee
+  //               },
+  //               info,
+  //           });
+  //       },
+  //     }
+  //   },
+  // }
+    Mutation: {
+      createPet: (_, args, context, info) => {
+        const { name, species, age, imageUrl, description, adoptionFee } = args;
+        return context.prisma.mutation.createPet({
+            data: {
+              id,
+              name,
+              species,
+              age,
+              imageUrl,
+              description,
+              adoptionFee
+            },
+            info,
+        });
+      },
+      updatePet: (_, args, context, info) => {
+        const { name, species, age, imageUrl, description, adoptionFee } = args;
+        return context.prisma.mutation.updatePet({
+          where: {
+            id: id,
           },
+          data: {
+            name,
+            species,
+            age,
+            imageUrl,
+            description,
+            adoptionFee
+          },
+          info,
+        });
+      },
+      deletePet: (_, args, context, info) => {
+        return context.prisma.mutation.deletePet(
+          {
+            where: {
+              id: args.id,
+            },
+          },
+          info,
         )
       },
-    //   publish: (_, args, context, info) => {
-    //     return context.prisma.mutation.updatePost(
-    //       {
-    //         where: {
-    //           id: args.id,
-    //         },
-    //         data: {
-    //           published: true,
-    //         },
-    //       },
-    //       info,
-    //     )
-    //   },
-    //   deletePost: (_, args, context, info) => {
-    //     return context.prisma.mutation.deletePost(
-    //       {
-    //         where: {
-    //           id: args.id,
-    //         },
-    //       },
-    //       info,
-    //     )
-    //   },
-    //   signup: (_, args, context, info) => {
-    //     return context.prisma.mutation.createUser(
-    //       {
-    //         data: {
-    //           name: args.name,
-    //         },
-    //       },
-    //       info,
-    //     )
-    //   },
-    // },
+      createUser: (_, args, context, info) => {
+        const {  firstName,
+          lastName,
+          email,
+          password,
+          address,
+          address2,
+          city,
+          state,
+          zipcode,
+          rentOrOwn,
+          over18,
+          isAdmin } = args;
+        return context.prisma.mutation.createPet({
+            data: {
+              id,
+              firstName,
+              lastName,
+              email,
+              password,
+              address,
+              address2,
+              city,
+              state,
+              zipcode,
+              rentOrOwn,
+              over18,
+              isAdmin
+            },
+            info,
+        });
+      },
   }
 }
 
 const server = new GraphQLServer({
   typeDefs: 'src/schema.graphql',
   resolvers,
+  middlewares: [yupMutationMiddleware()],
   context: req => ({
     ...req,
     prisma: new Prisma({

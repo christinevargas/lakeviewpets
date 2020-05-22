@@ -1,27 +1,4 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
-/* #root { 
-  background: url("/gradient2.jpeg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
-
 /* Navbar */
-
 .navbar-container {
   display: flex;
   flex-direction: row;
@@ -39,6 +16,12 @@ code {
   height: 50px;
   width: 200px;
   margin-left: 20px
+}
+
+.sign-in-icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
 }
 
 .all-pets-icon {
@@ -132,9 +115,10 @@ code {
 }
 
  /* All Pets */
-
  .all-pets-page {
    background-image: url("/gradient.jpeg");
+   background-repeat: no-repeat;
+   background-size: cover;
  }
  .all-pets-container {
   display: flex;
@@ -157,7 +141,7 @@ code {
 .all-pets-cards {
   /* flex-grow: 1; */
   align-content: flex-start;
-  padding: 30px
+  padding: 30px;
 }
 
 .pet-name {
@@ -185,52 +169,75 @@ code {
   color: black
 }
 
+.pet-card-img {
+  height: 150px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 
 /* Single Pet */
-.single-pet-container {
+.outermost-div{
+  padding-top: 200px;
   display: flex;
-  padding-top: 100px;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 145px
 }
-
-.single-pet-image {
-  height: 300px;
-  width: 450px;
+.sibling-pic-container {
+  display: flex;
 }
-
-.single-pet-intro-container {
+.pic {
+  max-height: max-content;
+  max-width: max-content;
+}
+.sibling-info-container {
   display: flex;
   flex-direction: column;
+  width: 500px;
+  padding-right: 50px
+}
+.fee-container {
+  display: flex;
+}
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.pet-description {
+  font-family: 'Bellota';
   text-align: center;
+  padding-top: 75px;
+  border-top: dotted;
 }
-.single-pet-name {
-  font-family: "Bellota";
-  font-size: 40px;
+.details {
+  padding-top: 50px;
+  font-family: 'Bellota';
 }
-
-.single-pet-data-container {
+.adoption-fee {
+  font-family: 'Bellota';
+  text-align: center;
+  padding-top: 100px
+}
+.adopt-pet-button {
+  margin-top: 100px;
+  font-family: 'Bellota';
+  align-self: center
+}
+.available {
+  font-family: 'Bellota';
+  padding-top: 100px;
+  color: #17a2b8;
+  align-self: center;
+}
+.title {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  border-style: dotted;
-  padding: 50px
 }
-
-.single-pet-header {
-  font-family: "Bellota";
-  font-size: 30px;
-  padding-bottom: 50px
-}
-
-.single-pet-buttons-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-content: center;
-}
-
-.single-pet-button {
-  height: 50px;
+.edit-icon {
+  padding-left: 20px;
 }
 
 /* Adoption Form */
@@ -291,7 +298,6 @@ code {
 }
 
 /* Create A Pet Form */
-
 .create-pet-form-container {
   display: flex;
   flex-direction: row;
@@ -342,7 +348,6 @@ code {
 }
 
 /* Edit A Pet Form */
-
 .edit-pet-form-container {
   display: flex;
   flex-direction: row;
@@ -395,7 +400,6 @@ code {
 }
 
 /* About Us/FAQ */
-
 .about-us-page-container {
   display: flex;
   flex-direction: column;
@@ -403,7 +407,6 @@ code {
   align-content: space-between;
   margin-bottom: 100px
 }
-
 .about-us-container {
   display: flex;
   flex-direction: row;
@@ -424,17 +427,23 @@ code {
 }
 .faq-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
-
 .faq-image {
   padding-top: 75px;
+  padding-right: 50px;
   height: 550px;
   width: 500px
 }
-
 .faq-text {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin-left: 50px;
+  margin-top: 75px;
+  border-style: solid;
 }
+.card-header {
+  font-family: "Amaranth";
+  font-size: 25px;
+  color: #17a2b8;
+}
+
+/* Cart */

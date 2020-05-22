@@ -48,7 +48,7 @@ const AdoptionForm: FC = () => {
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
-              <Form.Control as="select" value="Choose...">
+              <Form.Control as="select" defaultValue="Choose...">
                 <option>Choose...</option>
                 <option>IL</option>
               </Form.Control>
@@ -90,7 +90,7 @@ const AdoptionForm: FC = () => {
           <Form.Group id="formGridCheckbox">
             <Form.Check type="checkbox" label="I certify that I am 18 years or older." className="checkbox"/>
             <Form.Check type="checkbox" label="I certify that all household members are in agreeance with this adoption." className="checkbox"/>
-            <Form.Check type="checkbox" label="I agree to pay the $200.00 adoption fee." className="checkbox"/>
+            <Form.Check type="checkbox" label="I agree to pay the $50.00 adoption fee." className="checkbox"/>
           </Form.Group>
           <Button variant="outline-info" type="submit">
             Submit

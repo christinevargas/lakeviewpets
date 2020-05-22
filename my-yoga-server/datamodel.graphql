@@ -1,0 +1,26 @@
+type Pet {
+  id: ID! @unique
+  name: String
+  species: String
+  age: Int
+  imageUrl: String @default(value: "https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png")
+  description: String
+  adoptionFee: Int
+}
+
+type User {
+  id: ID! @unique
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  over18: Boolean
+  isAdmin: Boolean @default(value: "false")
+}
+

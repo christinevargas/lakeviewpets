@@ -1,29 +1,88 @@
 # import Pet from './generated/prisma.graphql'
-# import Customer from './generated/prisma.graphql'
+# import User from './generated/prisma.graphql'
 
 type Query {
-  pet: Pet
+  pets: Pet
+  pet($id: ID!): Pet
+  users: User
+  user($id: ID!): User
 }
+
 
 type Mutation {
-  createPet(pet: {id: ID!, name: String!, species: String!, imgUrl: String!, description: String!, available: Boolean!, price: Int!}): Pet
-  
+  createPet(data: PetCreateInput!): Pet
+  createUser(data: UserCreateInput!): User!
+  updatePet(data: PetUpdateInput!, where: PetWhereUniqueInput!): Pet
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  # deletePet(where: PetWhereUniqueInput!): Pet
+  # deleteUser(where: UserWhereUniqueInput!): User
+  # upsertPet(where: PetWhereUniqueInput!, create: PetCreateInput!, update: PetUpdateInput!): Pet!
+  # upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  # updateManyPets(data: PetUpdateInput!, where: PetWhereInput): BatchPayload!
+  # updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  # deleteManyPets(where: PetWhereInput): BatchPayload!
+  # deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
 
+# Input type for a new Pet
+type PetCreateInput {
+  name: String
+  species: String
+  age: Int
+  imageUrl: String
+  description: String
+  adoptionFee: Int
+}
 
-# type Mutation {
-#     # Add a new comment
-#     createPet(pet: createPetInput!): Pet
-# }
+input PetWhereUniqueInput {
+  id: String
+}
 
-# # Input type for a new Comment
-# input createPetInput {
-#    id: ID!
-#    name: String!
-#    species: String!
-#    imgUrl: String!
-#    description: String!
-#    available: Boolean!
-#    price: Int!
-# }
+type PetUpdateInput {
+  name: String
+  species: String
+  age: Int
+  imageUrl: String
+  description: String
+  adoptionFee: Int
+}
+
+input PetWhereInput {
+  species: String
+}
+
+# Input type for a new User
+type UserCreateInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  over18: Boolean
+  isAdmin: Boolean
+}
+
+input UserWhereUniqueInput {
+  id: String
+}
+
+type UserUpdateInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  over18: Boolean
+  isAdmin: Boolean
+}
