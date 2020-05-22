@@ -4,14 +4,16 @@
 type Query {
   pets: Pet
   pet($id: ID!): Pet
+  users: User
+  user($id: ID!): User
 }
 
 
 type Mutation {
   createPet(data: PetCreateInput!): Pet
-  # createUser(data: UserCreateInput!): User!
+  createUser(data: UserCreateInput!): User!
   updatePet(data: PetUpdateInput!, where: PetWhereUniqueInput!): Pet
-  # updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   # deletePet(where: PetWhereUniqueInput!): Pet
   # deleteUser(where: UserWhereUniqueInput!): User
   # upsertPet(where: PetWhereUniqueInput!, create: PetCreateInput!, update: PetUpdateInput!): Pet!
@@ -25,7 +27,6 @@ type Mutation {
 
 # Input type for a new Pet
 type PetCreateInput {
-  # id: ID!
   name: String
   species: String
   age: Int
@@ -49,4 +50,39 @@ type PetUpdateInput {
 
 input PetWhereInput {
   species: String
+}
+
+# Input type for a new User
+type UserCreateInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  over18: Boolean
+  isAdmin: Boolean
+}
+
+input UserWhereUniqueInput {
+  id: String
+}
+
+type UserUpdateInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  address: String
+  address2: String
+  city: String
+  state: String
+  zipcode: Int
+  rentOrOwn: String
+  over18: Boolean
+  isAdmin: Boolean
 }

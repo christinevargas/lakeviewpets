@@ -35,8 +35,20 @@ const resolvers = {
             where: { id: args.id }
           }
         )
+      },
+      users(_, args, context, info){
+        return context.prisma.query.users()
+        info
+      },
+      user(_, args, context, info){
+        return context.prisma.query.user(
+          {
+            where: { id: args.id }
+          }
+        )
       }
     },
+  
     // Mutation: {
   //     createPet: {
   //       validationSchema: yup.object().shape({
@@ -114,7 +126,39 @@ const resolvers = {
           },
           info,
         )
-      }
+      },
+      createUser: (_, args, context, info) => {
+        const {  firstName,
+          lastName,
+          email,
+          password,
+          address,
+          address2,
+          city,
+          state,
+          zipcode,
+          rentOrOwn,
+          over18,
+          isAdmin } = args;
+        return context.prisma.mutation.createPet({
+            data: {
+              id,
+              firstName,
+              lastName,
+              email,
+              password,
+              address,
+              address2,
+              city,
+              state,
+              zipcode,
+              rentOrOwn,
+              over18,
+              isAdmin
+            },
+            info,
+        });
+      },
   }
 }
 

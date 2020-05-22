@@ -205,6 +205,105 @@
     id
   }
 
+  admin: createUser(data: {
+    firstName: "Christine"
+    lastName: "Vargas"
+    email: "christine@christine.com"
+    password: "christine"
+    address: "123 Main Street"
+    address2: "Apt. 1"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Own"
+    over18: true
+    isAdmin: true
+  }) {
+    id
+  },
+
+  
+   user1: createUser(data: {
+    firstName: "Jane"
+    lastName: "Doe"
+    email: "user1@user1.com"
+    password: "user1"
+    address: "456 Main Street"
+    address2: "Apt. 2"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user2: createUser(data: {
+    firstName: "John"
+    lastName: "Doe"
+    email: "user2@user2.com"
+    password: "user2"
+    address: "456 Main Street"
+    address2: "Apt. 2"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user3: createUser(data: {
+    firstName: "Kevin"
+    lastName: "Sanchez"
+    email: "kevin@kevin.com"
+    password: "kevin"
+    address: "123 Main Street"
+    address2: "Apt. A"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Own"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user4: createUser(data: {
+    firstName: "Benny"
+    lastName: "Martinez"
+    email: "benny@benny.com"
+    password: "benny"
+    address: "789 Main Street"
+    address2: "Apt. F"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+   user5: createUser(data: {
+    firstName: "Emma"
+    lastName: "Martinez"
+    email: "emma@emma.com"
+    password: "emma"
+    address: "789 Main Street"
+    address2: "Apt. B"
+    city: "Chicago"
+    state: "IL"
+    zipcode: 60601
+    rentOrOwn: "Rent"
+    over18: true
+    isAdmin: false
+  }) {
+    id
+  },
+  
 }
  
 

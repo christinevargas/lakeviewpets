@@ -179,6 +179,8 @@ export type UserOrderByInput =
   | "zipcode_DESC"
   | "rentOrOwn_ASC"
   | "rentOrOwn_DESC"
+  | "over18_ASC"
+  | "over18_DESC"
   | "isAdmin_ASC"
   | "isAdmin_DESC";
 
@@ -327,8 +329,20 @@ export interface UserWhereInput {
   lastName_not_starts_with?: Maybe<String>;
   lastName_ends_with?: Maybe<String>;
   lastName_not_ends_with?: Maybe<String>;
-  email?: Maybe<Boolean>;
-  email_not?: Maybe<Boolean>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
   password?: Maybe<String>;
   password_not?: Maybe<String>;
   password_in?: Maybe<String[] | String>;
@@ -421,6 +435,8 @@ export interface UserWhereInput {
   rentOrOwn_not_starts_with?: Maybe<String>;
   rentOrOwn_ends_with?: Maybe<String>;
   rentOrOwn_not_ends_with?: Maybe<String>;
+  over18?: Maybe<Boolean>;
+  over18_not?: Maybe<Boolean>;
   isAdmin?: Maybe<Boolean>;
   isAdmin_not?: Maybe<Boolean>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
@@ -458,7 +474,7 @@ export interface PetUpdateManyMutationInput {
 export interface UserCreateInput {
   firstName?: Maybe<String>;
   lastName?: Maybe<String>;
-  email?: Maybe<Boolean>;
+  email?: Maybe<String>;
   password?: Maybe<String>;
   address?: Maybe<String>;
   address2?: Maybe<String>;
@@ -466,13 +482,14 @@ export interface UserCreateInput {
   state?: Maybe<String>;
   zipcode?: Maybe<Int>;
   rentOrOwn?: Maybe<String>;
+  over18?: Maybe<Boolean>;
   isAdmin?: Maybe<Boolean>;
 }
 
 export interface UserUpdateInput {
   firstName?: Maybe<String>;
   lastName?: Maybe<String>;
-  email?: Maybe<Boolean>;
+  email?: Maybe<String>;
   password?: Maybe<String>;
   address?: Maybe<String>;
   address2?: Maybe<String>;
@@ -480,13 +497,14 @@ export interface UserUpdateInput {
   state?: Maybe<String>;
   zipcode?: Maybe<Int>;
   rentOrOwn?: Maybe<String>;
+  over18?: Maybe<Boolean>;
   isAdmin?: Maybe<Boolean>;
 }
 
 export interface UserUpdateManyMutationInput {
   firstName?: Maybe<String>;
   lastName?: Maybe<String>;
-  email?: Maybe<Boolean>;
+  email?: Maybe<String>;
   password?: Maybe<String>;
   address?: Maybe<String>;
   address2?: Maybe<String>;
@@ -494,6 +512,7 @@ export interface UserUpdateManyMutationInput {
   state?: Maybe<String>;
   zipcode?: Maybe<Int>;
   rentOrOwn?: Maybe<String>;
+  over18?: Maybe<Boolean>;
   isAdmin?: Maybe<Boolean>;
 }
 
@@ -646,7 +665,7 @@ export interface User {
   id: ID_Output;
   firstName?: String;
   lastName?: String;
-  email?: Boolean;
+  email?: String;
   password?: String;
   address?: String;
   address2?: String;
@@ -654,6 +673,7 @@ export interface User {
   state?: String;
   zipcode?: Int;
   rentOrOwn?: String;
+  over18?: Boolean;
   isAdmin?: Boolean;
 }
 
@@ -661,7 +681,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
-  email: () => Promise<Boolean>;
+  email: () => Promise<String>;
   password: () => Promise<String>;
   address: () => Promise<String>;
   address2: () => Promise<String>;
@@ -669,6 +689,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   state: () => Promise<String>;
   zipcode: () => Promise<Int>;
   rentOrOwn: () => Promise<String>;
+  over18: () => Promise<Boolean>;
   isAdmin: () => Promise<Boolean>;
 }
 
@@ -678,7 +699,7 @@ export interface UserSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   firstName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<Boolean>>;
+  email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   address: () => Promise<AsyncIterator<String>>;
   address2: () => Promise<AsyncIterator<String>>;
@@ -686,6 +707,7 @@ export interface UserSubscription
   state: () => Promise<AsyncIterator<String>>;
   zipcode: () => Promise<AsyncIterator<Int>>;
   rentOrOwn: () => Promise<AsyncIterator<String>>;
+  over18: () => Promise<AsyncIterator<Boolean>>;
   isAdmin: () => Promise<AsyncIterator<Boolean>>;
 }
 
@@ -695,7 +717,7 @@ export interface UserNullablePromise
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
-  email: () => Promise<Boolean>;
+  email: () => Promise<String>;
   password: () => Promise<String>;
   address: () => Promise<String>;
   address2: () => Promise<String>;
@@ -703,6 +725,7 @@ export interface UserNullablePromise
   state: () => Promise<String>;
   zipcode: () => Promise<Int>;
   rentOrOwn: () => Promise<String>;
+  over18: () => Promise<Boolean>;
   isAdmin: () => Promise<Boolean>;
 }
 
@@ -864,7 +887,7 @@ export interface UserPreviousValues {
   id: ID_Output;
   firstName?: String;
   lastName?: String;
-  email?: Boolean;
+  email?: String;
   password?: String;
   address?: String;
   address2?: String;
@@ -872,6 +895,7 @@ export interface UserPreviousValues {
   state?: String;
   zipcode?: Int;
   rentOrOwn?: String;
+  over18?: Boolean;
   isAdmin?: Boolean;
 }
 
@@ -881,7 +905,7 @@ export interface UserPreviousValuesPromise
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
-  email: () => Promise<Boolean>;
+  email: () => Promise<String>;
   password: () => Promise<String>;
   address: () => Promise<String>;
   address2: () => Promise<String>;
@@ -889,6 +913,7 @@ export interface UserPreviousValuesPromise
   state: () => Promise<String>;
   zipcode: () => Promise<Int>;
   rentOrOwn: () => Promise<String>;
+  over18: () => Promise<Boolean>;
   isAdmin: () => Promise<Boolean>;
 }
 
@@ -898,7 +923,7 @@ export interface UserPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   firstName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<Boolean>>;
+  email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   address: () => Promise<AsyncIterator<String>>;
   address2: () => Promise<AsyncIterator<String>>;
@@ -906,6 +931,7 @@ export interface UserPreviousValuesSubscription
   state: () => Promise<AsyncIterator<String>>;
   zipcode: () => Promise<AsyncIterator<Int>>;
   rentOrOwn: () => Promise<AsyncIterator<String>>;
+  over18: () => Promise<AsyncIterator<Boolean>>;
   isAdmin: () => Promise<AsyncIterator<Boolean>>;
 }
 

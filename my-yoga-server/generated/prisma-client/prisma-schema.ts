@@ -256,7 +256,7 @@ type User {
   id: ID!
   firstName: String
   lastName: String
-  email: Boolean
+  email: String
   password: String
   address: String
   address2: String
@@ -264,6 +264,7 @@ type User {
   state: String
   zipcode: Int
   rentOrOwn: String
+  over18: Boolean
   isAdmin: Boolean
 }
 
@@ -276,7 +277,7 @@ type UserConnection {
 input UserCreateInput {
   firstName: String
   lastName: String
-  email: Boolean
+  email: String
   password: String
   address: String
   address2: String
@@ -284,6 +285,7 @@ input UserCreateInput {
   state: String
   zipcode: Int
   rentOrOwn: String
+  over18: Boolean
   isAdmin: Boolean
 }
 
@@ -315,6 +317,8 @@ enum UserOrderByInput {
   zipcode_DESC
   rentOrOwn_ASC
   rentOrOwn_DESC
+  over18_ASC
+  over18_DESC
   isAdmin_ASC
   isAdmin_DESC
 }
@@ -323,7 +327,7 @@ type UserPreviousValues {
   id: ID!
   firstName: String
   lastName: String
-  email: Boolean
+  email: String
   password: String
   address: String
   address2: String
@@ -331,6 +335,7 @@ type UserPreviousValues {
   state: String
   zipcode: Int
   rentOrOwn: String
+  over18: Boolean
   isAdmin: Boolean
 }
 
@@ -355,7 +360,7 @@ input UserSubscriptionWhereInput {
 input UserUpdateInput {
   firstName: String
   lastName: String
-  email: Boolean
+  email: String
   password: String
   address: String
   address2: String
@@ -363,13 +368,14 @@ input UserUpdateInput {
   state: String
   zipcode: Int
   rentOrOwn: String
+  over18: Boolean
   isAdmin: Boolean
 }
 
 input UserUpdateManyMutationInput {
   firstName: String
   lastName: String
-  email: Boolean
+  email: String
   password: String
   address: String
   address2: String
@@ -377,6 +383,7 @@ input UserUpdateManyMutationInput {
   state: String
   zipcode: Int
   rentOrOwn: String
+  over18: Boolean
   isAdmin: Boolean
 }
 
@@ -423,8 +430,20 @@ input UserWhereInput {
   lastName_not_starts_with: String
   lastName_ends_with: String
   lastName_not_ends_with: String
-  email: Boolean
-  email_not: Boolean
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
   password: String
   password_not: String
   password_in: [String!]
@@ -517,6 +536,8 @@ input UserWhereInput {
   rentOrOwn_not_starts_with: String
   rentOrOwn_ends_with: String
   rentOrOwn_not_ends_with: String
+  over18: Boolean
+  over18_not: Boolean
   isAdmin: Boolean
   isAdmin_not: Boolean
   AND: [UserWhereInput!]
